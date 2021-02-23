@@ -7,14 +7,18 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" type="text/css" href="style/myStyle.css"/>
 
-   <!-- 弹出层 -->
+   <!-- 第三方弹出 -->
    <link rel="stylesheet" href="//cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" type='text/css' media='all' />
 </head>
-<body>
-  <div id="app"></div>
+<body style="background-repeat: no-repeat; background-size: 100% 100%; background-attachment: fixed;">
+  <div id="app">Loading...</div>
+  <a class="to-top">Top</a>
   <script>
     window.$docsify = {
+      el: '#app',
+      name: 'docsify文档',
       // 覆盖首页
       coverpage: true,
       // 导航栏
@@ -23,6 +27,37 @@
       loadSidebar: true,
       // 设置中文的README.md作为首页
       homepage: 'zh-cn/README.md', 
+      // 目录最大级数
+      subMaxLevel: 2,
+
+      repo: 'https://github.com/Vinsmoke62426/blog',
+
+      //添加搜索功能，中文和英文文档同时搜索
+      search: {
+        paths: 'auto',
+        placeholder: {
+          '/':'🔍 搜索',
+          '/zh-cn/':'🔍 搜索',
+          '/en-us/':'🔍 Type to search'
+        },
+        //如果中文和英文文档都没有内容，则返回
+        noData: {
+          '/':'😒 找不到结果',
+          '/zh-cn/':'😒 找不到结果',
+          '/en-us/':'😒 No Results'
+        },
+  
+        depth: 4,         //搜索标题的最大层级
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+      },
+
+      // 文档页脚
+      footer: {
+        copy: 'Copyright &copy; 2021 😎 </span>',
+        auth: ' <strong>Vinsmoke62426</strong>',
+        pre: '<hr/>',
+        style: 'text-align: center;',
+      },   
     }
   </script>
   <!-- Docsify v4 -->
@@ -30,6 +65,15 @@
 
   <!-- Markdown 引用样式美化 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-plugin-flexible-alerts/dist/docsify-plugin-flexible-alerts.min.js"></script>
+
+  <!-- docsify表情包 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+
+  <!-- 搜索功能 -->
+  <script src="//cdn.bootcss.com/docsify/4.5.9/plugins/search.min.js"></script>
+
+  <!-- 文档页脚增强 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-footer-enh/dist/docsify-footer.min.js"></script>
 
   <!-- 复制提醒 -->
   <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
@@ -39,6 +83,21 @@
       // swal("复制成功 🎉",  "若要转载或引用请务必保留原文链接，并申明来源。如果你觉得本仓库不错，那就来 Github 给个 star 吧 😊", "success")
       console.log('复制成功')
     };
+  </script>
+
+  <!-- 置顶插件 -->
+  <script src="style/jquery-1.11.3.min.js"></script>
+  <script src="style/jquery.toTop.min.js"></script>
+  <script>
+    $('.to-top').toTop();
+  </script>
+
+  <!-- PWA 离线化 -->
+  <script>
+    console.log('navigator:', navigator)
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js')
+    }
   </script>
 </body>
 </html>
