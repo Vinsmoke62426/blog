@@ -35,6 +35,3 @@
 > 在`[]`里面写入`!WARNING|label:Important`即可
 >
 > 同理`Danger`，`TIP`，`NOTE`添加`label:xxx`实现自定义
-
-## 访问量统计
-<!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
