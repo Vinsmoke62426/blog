@@ -6,7 +6,7 @@
     - [权限控制](zh-cn/vue/permission.md)
 
 - Js
-    - [杂项](zh-cn/js/base.md)
+    - [杂项](zh-cn/js/sundries.md)
 
 - 中文技术文档的写作规范
     - [标题](zh-cn/documentStyle/title.md)
