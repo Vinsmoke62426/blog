@@ -12,3 +12,8 @@
 二维数组想浅拷贝，必须要对内层对数组进行解构，对外层解构无效，还是会改变原数组
 const [...newArray] = oldArray
 ```
+
+## 使你的网址在1分钟内提高1%
+```js
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+```
