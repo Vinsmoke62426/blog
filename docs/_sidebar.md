@@ -19,3 +19,6 @@
 
 - 随笔
     - [日常](zh-cn/essays/essays.md)
+
+- 项目相关
+    - [小记](zh-cn/project/project.md)
