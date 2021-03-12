@@ -13,6 +13,7 @@
 - Vue项目相关
     - [基础](zh-cn/vue/base.md)
     - [权限控制](zh-cn/vue/permission.md)
+    - [环境变量配置](zh-cn/vue/params.md)
 
 - Js
     - [杂项](zh-cn/js/sundries.md)
