@@ -12,3 +12,13 @@
 
 原因是 border-radius 写的位置错了，不应该写在 is-active里面，应该直接写 el-menu-item 下面
 ```
+## vue-cli3.x 的cdn加速
+```
+之前遇到了，项目中没有引入 echarts 但是项目中可以使用的情况，实际上是因为在 vue.config.js 中配置了 cdn 加速的原因
+
+相当于你用的是远程的路径，可以不用安装依赖，但是在离线部署的时候不行
+```
+## echarts 的 legend 鼠标一放上去就变白的问题
+```
+是因为 echarts 的 legend 无法识别 rgba颜色，必须要用 hex
+```
