@@ -21,4 +21,6 @@
 ## echarts 的 legend 鼠标一放上去就变白的问题
 ```
 是因为 echarts 的 legend 无法识别 rgba颜色，必须要用 hex
+
+包括 borderColor 也是必须要用 hex 颜色，否则就显示空白的 border
 ```
