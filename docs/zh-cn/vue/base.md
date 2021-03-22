@@ -28,3 +28,23 @@ new Vue() 中的 router 和 store 是将这两个插件挂载到 vue 实例中�
 tips: vue.use() 必须在 new vue() 之前，use() 的时候括号里面插件的代码会运行一次。
 
 ```
+
+## Vue项目的文件执行顺序
+```js
+  new Vue({
+    el: "#app",  //告诉该实例要挂载的地方
+    store,
+    router,
+    components: { App },  //实例中注册了一个局部组件App, 这个局部组件是当前目录下的App.vue
+    template: "<App/>"  //而初始模板是什么呢？模板就是组件App.vue中的template中的内容。（template会替代原来的的挂载点处的内容）
+  });
+```
+```
+在项目运行中，main.js作为项目的入口文件，
+
+运行中，找到其实例需要挂载的位置，即index.html中，
+
+刚开始，index.html的挂载点处的内容会被显示，但是随后就被实例中的组件中的模板中的内容所取代，
+
+所以我们会看到有那么一瞬间会显示出index.html中正文的内容。
+```
