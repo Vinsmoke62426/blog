@@ -64,3 +64,5 @@ input:-webkit-autofill{
 
 因为 src 只是一个 url 地址，不是文件， blob 则是一种特殊的File类型
 ```
+
+## classList是list格式，不能用数组的方法， 而 js 没有 contains 这个方法（类似与 includes ），为啥也可以用
