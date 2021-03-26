@@ -20,3 +20,5 @@ const [...newArray] = oldArray
 引用自[https://instant.page/](https://instant.page/)
 
 ## 注册全局监听事件用 window.addEventListener()
+
+## screenfull 这种非F11的全屏，只能通过用户自己操作，无法通过添加事件监听自定全屏
