@@ -22,3 +22,19 @@ const [...newArray] = oldArray
 ## 注册全局监听事件用 window.addEventListener()
 
 ## vue 全局注册事件竟然需要 this.$nextTick(() => {})
+## 获取一张图片的实际尺寸
+```js
+用 dom 获取到的 clientWidth 和 clientHeight 都是字面意思，客户端尺寸。
+
+想要获取一张图片的实际尺寸，要用 url 来获取
+
+let img = new Image()
+
+img.src = url //图片url
+
+const width = img.width
+
+const height = img.height
+
+这样拿到的才是实际尺寸
+```
