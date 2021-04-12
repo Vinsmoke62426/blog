@@ -41,6 +41,8 @@ const height = img.height
 
 ```js
 console.time()
+
 console.timeEnd()
+
 可以用来打印代码执行时间
 ```
