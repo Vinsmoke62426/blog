@@ -38,3 +38,9 @@ const height = img.height
 
 这样拿到的才是实际尺寸
 ```
+
+```js
+console.time()
+console.timeEnd()
+可以用来打印代码执行时间
+```
