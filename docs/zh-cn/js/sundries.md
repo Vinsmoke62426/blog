@@ -1,3 +1,37 @@
+## 将扁平数组转化为树状结构
+```js
+
+const getTree = arr => {
+    // 定义空的set，set类似于数组，但是具有唯一性
+    const set = new Set()
+    const res = []
+    arr.forEach((v, i) => {
+        // 基于key进行分类
+        const key = v.comType
+        const item = {
+            label: v.comOwn,
+            value: v.id
+        }
+        if(!set.has(key)){
+            res.push({
+                label: key,
+                children: [item]
+            })
+            set.add(key)
+        }else{
+            // 获取到对应的key然后再push
+            const t = res.find(v => v.label === key)
+            t.children.push(item)
+        }
+    })
+    return res
+}
+```
+## 判断是数字
+```js
+const isNum = num =>  num !== '' && !isNaN(num)
+```
+
 ## toLocaleString() 多国语言价格数字格式化
 ```js
 (10000000).toLocaleString('en')
@@ -39,6 +73,8 @@ const height = img.height
 这样拿到的才是实际尺寸
 
 但是这个在火狐和chrome上有区别，chrome无法点出img的属性，导致获取不到想要要的宽高？？？
+
+可能和 两个浏览器的 window.onload 和 img.onload 的加载顺序有关
 ```
 
 ```js
