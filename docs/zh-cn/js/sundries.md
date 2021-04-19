@@ -37,6 +37,8 @@ const width = img.width
 const height = img.height
 
 这样拿到的才是实际尺寸
+
+但是这个在火狐和chrome上有区别，chrome无法点出img的属性，导致获取不到想要要的宽高？？？
 ```
 
 ```js
