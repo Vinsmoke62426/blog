@@ -1,6 +1,5 @@
 ## 将扁平数组转化为树状结构
 ```js
-
 const getTree = arr => {
     // 定义空的set，set类似于数组，但是具有唯一性
     const set = new Set()
@@ -26,6 +25,22 @@ const getTree = arr => {
     })
     return res
 }
+```
+## Array.from 将维数组转换为真数组
+```js
+类似于 Array.from(document.querySelectorAll('.item.d2')) 
+
+之后就可以使用正常的数组方法了，不用forEach了
+
+Array.from还可以接受第二个参数，作用类似于数组的map方法，用来对每个元素进行处理，将处理后的值放入返回的数组
+
+Array.from(arrayLike, x => x * x);
+
+// 等同于
+Array.from(arrayLike).map(x => x * x);
+
+Array.from([1, 2, 3], (x) => x * x)
+// [1, 4, 9]
 ```
 ## 判断是数字
 ```js
