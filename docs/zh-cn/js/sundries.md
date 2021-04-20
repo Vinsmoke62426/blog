@@ -42,6 +42,14 @@ Array.from(arrayLike).map(x => x * x);
 Array.from([1, 2, 3], (x) => x * x)
 // [1, 4, 9]
 ```
+
+## Array.of 用于生成一个数组对象，主要是用来弥补Array()的不足
+```js
+let res = Array.of(1, 2, 3)
+
+console.log(res) // [1, 2, 3]
+```
+
 ## 判断是数字
 ```js
 const isNum = num =>  num !== '' && !isNaN(num)
@@ -54,7 +62,7 @@ const isNum = num =>  num !== '' && !isNaN(num)
 ```
 
 ## ~~ 运算符
-[将变量转化为Number类型](https://blog.csdn.net/weixin_37710888/article/details/82587296)
+[将变量转化为Number类型](https://blog.csdn.net/weixin_37710888/article/details/82587296) 同时可以用于向下取整
 
 ## 二维数组浅拷贝
 ```js
