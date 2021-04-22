@@ -1,0 +1,23 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "博客",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "docsify serve docs",
+    "auto": "git add . && git commit -m '修改' && git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vinsmoke62426/blog.git"
+  },
+  "author": "Fang 903508229@qq.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vinsmoke62426/blog/issues"
+  },
+  "homepage": "https://github.com/Vinsmoke62426/blog#readme"
+}
