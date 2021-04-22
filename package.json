@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "docsify serve docs",
-    "auto": "git add . && git commit -m '修改' && git push"
+    "auto": "git add . && git commit -m 自动修改 && git push"
   },
   "repository": {
     "type": "git",
