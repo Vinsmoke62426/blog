@@ -1,4 +1,4 @@
-## 将扁平数组转化为树状结构
+### 将扁平数组转化为树状结构
 ```js
 const getTree = arr => {
     // 定义空的set，set类似于数组，但是具有唯一性
@@ -26,7 +26,7 @@ const getTree = arr => {
     return res
 }
 ```
-## Array.from 将维数组转换为真数组
+### Array.from 将维数组转换为真数组
 ```js
 类似于 Array.from(document.querySelectorAll('.item.d2')) 
 
@@ -43,43 +43,43 @@ Array.from([1, 2, 3], (x) => x * x)
 // [1, 4, 9]
 ```
 
-## Array.of 用于生成一个数组对象，主要是用来弥补Array()的不足
+### Array.of 用于生成一个数组对象，主要是用来弥补Array()的不足
 ```js
 let res = Array.of(1, 2, 3)
 
 console.log(res) // [1, 2, 3]
 ```
 
-## 判断是数字
+### 判断是数字
 ```js
 const isNum = num =>  num !== '' && !isNaN(num)
 ```
 
-## toLocaleString() 多国语言价格数字格式化
+### toLocaleString() 多国语言价格数字格式化
 ```js
 (10000000).toLocaleString('en')
 =》  10,000,000
 ```
 
-## ~~ 运算符
+### ~~ 运算符
 [将变量转化为Number类型](https://blog.csdn.net/weixin_37710888/article/details/82587296) 同时可以用于向下取整
 
-## 二维数组浅拷贝
+### 二维数组浅拷贝
 ```js
 二维数组想浅拷贝，必须要对内层对数组进行解构，对外层解构无效，还是会改变原数组
 const [...newArray] = oldArray
 ```
 
-## 使你的网址在1分钟内提高1%
+### 使你的网址在1分钟内提高1%
 ```js
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
 ```
 引用自[https://instant.page/](https://instant.page/)
 
-## 注册全局监听事件用 window.addEventListener()
+### 注册全局监听事件用 window.addEventListener()
 
-## vue 全局注册事件竟然需要 this.$nextTick(() => {})
-## 获取一张图片的实际尺寸
+### vue 全局注册事件竟然需要 this.$nextTick(() => {})
+### 获取一张图片的实际尺寸
 ```js
 用 dom 获取到的 clientWidth 和 clientHeight 都是字面意思，客户端尺寸。
 
@@ -121,3 +121,17 @@ xxxx?.() => {}
 
 当时困扰了很久
 ```
+
+### package-lock.json
+```
+package-lock.json 文件是用来锁 package.json 里面依赖的版本的
+
+在 npm5 以前没有这个文件的时候，你手动修改了 package.json 里面的依赖，然后在 npm install， 相对的依赖的版本就会直接被修改
+
+有了 package-lock.json 之后，必须要 npm install xxx@x.x.x （@后面对应的版本号）去更新依赖，然后package-lock.json也能随之更新
+```
+> [!TIP] 团队开发时，当拉取代码，发现 package.json 和 package-lock.json 两个文件都更新了某一个依赖的版本时
+> 
+> 你必须 npm install 一下才能覆盖掉 node_modules 里面之前版本的这个依赖，这很重要
+
+
