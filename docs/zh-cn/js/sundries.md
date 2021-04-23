@@ -134,4 +134,22 @@ package-lock.json 文件是用来锁 package.json 里面依赖的版本的
 > 
 > 你必须 npm install 一下才能覆盖掉 node_modules 里面之前版本的这个依赖，这很重要
 
+### 关于时间格式
+```js
+new Date( ).toLoacleDateString
 
+=> 2021/4/23
+
+快速获取时间戳
+
++ new Date()  或者  Date.now()
+
+```
+### 检测当前页面是否被隐藏
+```js
+document.addEventListener("visibilitychange", function() {
+   console.log(document.hidden);
+})
+
+当切换页面时显示true， false就是打开状态, 一般在工作用主要用到用户在页面停留了多长时间
+```
