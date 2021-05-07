@@ -1,11 +1,9 @@
 ### vue中样式不起作用
-```
 原因： 
-    1.组件内部使用组件，添加了 scoped 属性
-    2.动态引入 html，也添加了 scoped 属性
+- 组件内部使用组件，添加了 scoped 属性
+- 动态引入 html，也添加了 scoped 属性
 
 vue 中的 scoped 属性的效果主要是通过 PostCss 实现的
-```
 ```css
 /* 转义前 */
 <style lang="scss" scoped>
@@ -63,6 +61,4 @@ vue 中的 scoped 属性的效果主要是通过 PostCss 实现的
 
 改变了唯一性标志的位置
 ```
-```
 动态加入的的 html 没有进过转义，没有对应的 data 属性，所以也不会起作用
-```
