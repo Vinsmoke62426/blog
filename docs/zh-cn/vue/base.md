@@ -25,7 +25,7 @@ new Vue({
 tips: `vue.use()`必须在`new vue()`之前，`use()`的时候括号里面插件的代码会运行一次。
 
 
-## Vue项目的文件执行顺序
+### Vue项目的文件执行顺序
 ```js
   new Vue({
     el: "#app",  //告诉该实例要挂载的地方
@@ -42,3 +42,39 @@ tips: `vue.use()`必须在`new vue()`之前，`use()`的时候括号里面插件
 刚开始，`index.html`的挂载点处的内容会被显示，但是随后就被实例中的组件中的模板中的内容所取代，
 
 所以我们会看到有那么一瞬间会显示出`index.html`中正文的内容。
+
+### 函数式组件
+
+常规写法：
+```vue
+<template>
+  <div class="cell">
+    <div v-if="value" class="on"></div>
+    <section v-else class="off"></section>
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['value'],
+}
+</script>
+```
+函数式组件写法：
+```vue
+<template functional>
+  <div class="cell">
+    <div v-if="props.value" class="on"></div>
+    <section v-else class="off"></section>
+  </div>
+</template>
+```
+特性：
+
+- 无状态
+- 无法实例化
+- 内部没有任何生命周期处理函数
+- `轻量，渲染性能高，适合只依赖于外部数据传递而变化的组件(展示组件，无逻辑和状态修改)`
+- 在 template 标签里标明 functional
+- 只接受 props 值
+- 不需要 script 标签
