@@ -78,3 +78,5 @@ export default {
 - 在 template 标签里标明 functional
 - 只接受 props 值
 - 不需要 script 标签
+
+tips: 因为递归组件需要 name，所以和函数式组件不能同时存在
