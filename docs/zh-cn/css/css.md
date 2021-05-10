@@ -62,3 +62,11 @@ vue 中的 scoped 属性的效果主要是通过 PostCss 实现的
 改变了唯一性标志的位置
 ```
 动态加入的的 html 没有进过转义，没有对应的 data 属性，所以也不会起作用
+
+### 控制浏览器缩放
+```css
+/* 可直接缩放页面，有意思 */
+body {
+    transform: scale(0.8) !important;
+}
+```
