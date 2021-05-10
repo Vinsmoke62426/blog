@@ -153,3 +153,10 @@ document.addEventListener("visibilitychange", function() {
 
 当切换页面时显示true， false就是打开状态, 一般在工作用主要用到用户在页面停留了多长时间
 ```
+```css
+/* 可直接缩放页面，有意思 */
+body {
+    transform: scale(0.8) !important;
+}
+```
+
