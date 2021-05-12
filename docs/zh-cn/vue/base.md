@@ -80,3 +80,13 @@ export default {
 - 不需要 script 标签
 
 tips: 因为递归组件需要 name，所以和函数式组件不能同时存在
+
+### `$ref` 和 `$el`  
+
+`this.$ref['标签上的ref名称']` 可以获取到一个 dom 元素。
+
+如果 `this.$ref['子组件上的ref名称']` 得到的就是子组件的实例，你可以在后面接着使用子组件的方法。
+
+`但是这样做你无法获得子组件的 dom`，这个时候就要用到 `$el`。
+
+`this.$ref['子组件上的ref名称'].$el.offsetTop` (用来获取子组件的 offsetTop)
