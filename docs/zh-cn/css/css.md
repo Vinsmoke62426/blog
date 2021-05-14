@@ -70,3 +70,30 @@ body {
     transform: scale(0.8) !important;
 }
 ```
+### 滚动条的锁定与解除锁定
+
+项目中涉及到弹出层弹出时，应该锁定背景 body 的滚动锁定，这种需求时，最开始是这样做的
+ 
+先 `document.body.style.hidden = 'hidden'` 锁定
+
+然后 ``document.body.style.hidden = 'auto'` 接触锁定
+
+会发现滚动条会出现问题，然后看了 elementui 的源码，发现他们是这样做的
+
+直接将`document.body.style.overflow` 作为变量，
+
+在关闭弹出层接触锁定的时候将变量赋值给 `document.body.style.overflow`
+
+demo
+```js
+// prevOverflow 是全局变量
+handleShowViewer() {
+    prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    this.showViewer = true
+},
+closeViewer() {
+    document.body.style.overflow = prevOverflow
+    this.showViewer = false
+}
+```
