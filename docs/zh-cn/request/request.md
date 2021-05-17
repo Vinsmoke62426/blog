@@ -26,3 +26,9 @@ getSearchfile(params).then(res => {
     }
 })
 ```
+
+### blob
+
+responseType: 'blob' 专门用来 blob 下载文件的？
+
+blob 的 三个方法
