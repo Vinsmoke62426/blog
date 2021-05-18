@@ -29,6 +29,8 @@ getSearchfile(params).then(res => {
 
 ### blob
 
+英文 Binary large Object 二进制大对象
+
 responseType: 'blob' 专门用来 blob 下载文件的？
 
 blob 的 三个方法
