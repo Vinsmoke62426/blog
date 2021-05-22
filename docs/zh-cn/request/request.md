@@ -49,3 +49,6 @@ blob 的 三个方法 [https://developer.mozilla.org/zh-CN/docs/Web/API/Blob](ht
 
 var text = await (new Response(blob)).text() 
 
+### axios timeout
+
+timeout 没有默认时间，默认是 0
