@@ -154,4 +154,10 @@ document.addEventListener("visibilitychange", function() {
 当切换页面时显示true， false就是打开状态, 一般在工作用主要用到用户在页面停留了多长时间
 ```
 
+### addEventListener 和 events
 
+addEventListener 是 Javascript 监听 DOM 事件的
+
+events 是 Node 的异步事件管理
+
+两者不相干
