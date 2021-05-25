@@ -154,10 +154,22 @@ document.addEventListener("visibilitychange", function() {
 当切换页面时显示true， false就是打开状态, 一般在工作用主要用到用户在页面停留了多长时间
 ```
 
-### addEventListener 和 events
+### addEventListener 和 removeEventListener
 
-addEventListener 是 Javascript 监听 DOM 事件的
+之前在实际项目中，涉及到在 vue 中进行事件的监听和销毁，
 
-events 是 Node 的异步事件管理
+最开始写的时候，没有涉及到事件的销毁，所以都是使用箭头函数，在箭头函数内部进行判断
 
-两者不相干
+但是如果要清除监听，因为是匿名函数，所以直接就歇菜了
+```js
+document.addEventListener('DOMMouseScroll', this.cbScrollFirefox)
+
+cbScrollFirefox(e) {
+    console.log(e)
+}
+
+document.removeEventListener('DOMMouseScroll', this.cbScrollFirefox)
+```
+注意`上面的命名函数默认传参自己的 dom 本身` 这很重要。
+
+### arguments
