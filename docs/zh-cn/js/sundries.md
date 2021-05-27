@@ -173,3 +173,12 @@ document.removeEventListener('DOMMouseScroll', this.cbScrollFirefox)
 注意`上面的命名函数默认传参自己的 dom 本身` 这很重要。
 
 ### arguments
+
+
+### JSX @click.native
+
+```js
+<el nativeOnClick={this.nativeOnClickHandler} />
+
+// 有意思
+```
