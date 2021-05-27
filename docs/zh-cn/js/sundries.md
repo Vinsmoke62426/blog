@@ -177,8 +177,12 @@ document.removeEventListener('DOMMouseScroll', this.cbScrollFirefox)
 
 ### JSX @click.native
 
+在项目中写 table 表格中的 下拉菜单 dropdown 时，因为用的是 jsx 的缘故，出现了问题
+
+本身 dropdown 中的下拉选项的点击事件是用它自带的 command 的，这个在 jsx 中不好操作，根本触发不了事件
+
+这个时候需要 用到 `.native`，为自定义组件添加原生事件，在 jsx 中这样写：
+
 ```js
 <el nativeOnClick={this.nativeOnClickHandler} />
-
-// 有意思
 ```
