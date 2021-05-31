@@ -90,3 +90,23 @@ tips: 因为递归组件需要 name，所以和函数式组件不能同时存在
 `但是这样做你无法获得子组件的 dom`，这个时候就要用到 `$el`。
 
 `this.$ref['子组件上的ref名称'].$el.offsetTop` (用来获取子组件的 offsetTop)
+
+### computed 和 methods
+
+computed 和 methods 里面函数的区别在于:
+
+computed 里面的函数调用的时候不需要带括号，带有缓存的能力，初始的时候会执行一次，只要其监听的数据不改变，则不改变，执行时直接返回上一次的值。
+
+methods 里面的函数，只要你调用，就执行。
+
+vue 中的 computed 和 methods 都`混入了 vue 实例中`，所以使用箭头函数指向的不是当前组件，要用常规函数
+
+### keepAlive
+
+正常生命周期：beforeRouteEnter --> created --> mounted --> updated -->destroyed
+
+使用keepAlive后生命周期：
+
+首次进入缓存页面：beforeRouteEnter --> created --> mounted --> activated --> deactivated
+
+再次进入缓存页面：beforeRouteEnter --> activated --> deactivated

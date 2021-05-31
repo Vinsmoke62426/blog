@@ -181,7 +181,7 @@ document.removeEventListener('DOMMouseScroll', this.cbScrollFirefox)
 
 本身 dropdown 中的下拉选项的点击事件是用它自带的 command 的，这个在 jsx 中不好操作，根本触发不了事件
 
-这个时候需要 用到 `.native`，为自定义组件添加原生事件，在 jsx 中这样写：
+这个时候需要 用到 `.native`，为自定义组件添加原生事件(阻止事件冒泡)，在 jsx 中要这样写：
 
 ```js
 <el nativeOnClick={this.nativeOnClickHandler} />
