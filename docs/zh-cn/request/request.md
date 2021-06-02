@@ -52,3 +52,8 @@ var text = await (new Response(blob)).text()
 ### axios timeout
 
 timeout 没有默认时间，默认是 0
+
+### windows查看端口并杀死进程
+
+netstat -aon|findstr "8105"
+taskkill /f /pid 18832
