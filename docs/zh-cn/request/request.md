@@ -14,11 +14,11 @@ getSearchfile(params).then(res => {
         })).then(resAll => {
             resAll.forEach(v => {
                 res.data.records.map(b => {
-                if(b.taskType == v.data.id) {
-                    b.taskType = v.data.taskName
-                }
+                    if(b.taskType == v.data.id) {
+                        b.taskType = v.data.taskName
+                    }
+                })
             })
-        })
             this.tableData = this.tableData.concat(res.data.records)
         }).finally(() => {
             this.loading = false
