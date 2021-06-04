@@ -55,5 +55,8 @@ timeout 没有默认时间，默认是 0
 
 ### windows查看端口并杀死进程
 
+搜索端口，并通过 id 杀死
+```
 netstat -aon|findstr "8105"
 taskkill /f /pid 18832
+```
