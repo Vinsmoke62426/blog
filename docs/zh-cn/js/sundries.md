@@ -186,3 +186,9 @@ document.removeEventListener('DOMMouseScroll', this.cbScrollFirefox)
 ```js
 <el nativeOnClick={this.nativeOnClickHandler} />
 ```
+
+### let that = this
+
+老生常谈的问题，`存储 this 指向`，之前在常规函数中见的比较多
+
+也可以遍历 classList，做样式上的处理，也挺方便的
