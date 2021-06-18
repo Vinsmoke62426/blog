@@ -192,3 +192,9 @@ document.removeEventListener('DOMMouseScroll', this.cbScrollFirefox)
 老生常谈的问题，`存储 this 指向`，之前在常规函数中见的比较多
 
 也可以遍历 classList，做样式上的处理，也挺方便的
+
+### 浏览器调试器查看事件监听
+
+FF 上的直接在元素后面有个 `event` 的按钮
+
+Chrome 上在右边可以点击查看所有的 事件
