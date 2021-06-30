@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "docsify serve docs",
+    "pull": "git pull",
     "auto": "git add . && git commit -m 自动修改 && git push"
   },
   "repository": {
