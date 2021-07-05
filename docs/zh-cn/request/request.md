@@ -27,6 +27,22 @@ getSearchfile(params).then(res => {
 })
 ```
 
+### 用Prommise将同步变异步
+```js
+function createAsyncTask(syncTask){
+    return Promise.resolve(syncTask).then(syncTask => syncTask())
+}
+
+createAsyncTask(() =>{
+    console.log('我变成了异步任务')  //第二输出
+    return 1+1
+}).then(res => {
+    console.log(res);  //最后输出
+})
+
+console.log('我是同步任务')   //最先输出
+```
+
 ### blob
 
 英文 Binary large Object 二进制大对象

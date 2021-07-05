@@ -199,18 +199,4 @@ FF 上的直接在元素后面有个 `event` 的按钮
 
 Chrome 上在右边可以点击查看所有的 事件
 
-### 用Prommise将同步变异步
-```js
-function createAsyncTask(syncTask){
-    return Promise.resolve(syncTask).then(syncTask => syncTask())
-}
 
-createAsyncTask(() =>{
-    console.log('我变成了异步任务')  //第二输出
-    return 1+1
-}).then(res => {
-    console.log(res);  //最后输出
-})
-
-console.log('我是同步任务')   //最先输出
-```
