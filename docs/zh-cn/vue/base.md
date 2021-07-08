@@ -113,10 +113,10 @@ vue 中的 computed 和 methods 都`混入了 vue 实例中`，所以使用箭�
 
 ### vue修饰符
 
-- .sync
+#### .sync
 
 `当父组件传值进子组件，子组件想要改变这个值时，可以这么做`
-```js
+```html
 父组件里
 <children :foo="bar" @update:foo="val => bar = val"></children>
 
@@ -124,16 +124,15 @@ vue 中的 computed 和 methods 都`混入了 vue 实例中`，所以使用箭�
 this.$emit('update:foo', newValue)
 ```
 简写 
-```
+```html
 父组件里
 <children :foo.sync="bar"></children>
 
 子组件里
 this.$emit('update:foo', newValue)
-
 ```
-- .keyCode
-```js
+#### .keyCode
+```html
 当我们这么写事件的时候，无论按什么按钮都会触发事件
 <input type="text" @keyup="shout(4)">
 
@@ -143,37 +142,24 @@ this.$emit('update:foo', newValue)
 Vue提供的keyCode：
 
 //普通键
-
-.enter 
-
-.tab
-
-.delete //(捕获“删除”和“退格”键)
-
-.space
-
-.esc
-
-.up
-
-.down
-
-.left
-
-.right
+- .enter 
+- .tab
+- .delete //(捕获“删除”和“退格”键)
+- .space
+- .esc
+- .up
+- .down
+- .left
+- .right
 
 //系统修饰键
-
-.ctrl
-
-.alt
-
-.meta
-
-.shift
+- .ctrl
+- .alt
+- .meta
+- .shift
 
 例如（具体的键码请看[键码对应表](https://zhidao.baidu.com/question/266291349.html)）
-```js
+```html
 按 ctrl 才会触发
 <input type="text" @keyup.ctrl="shout(4)">
 
