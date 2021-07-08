@@ -97,3 +97,11 @@ closeViewer() {
     this.showViewer = false
 }
 ```
+### transition 方向问题
+其实这个问题不是 `transition` 方向的问题，`transition` 本身是没有方向这一说法的
+
+是因为布局出现了问题
+
+使用 父级 `position：absolute` 加上子级 `position：relative` 的布局 
+
+来限制设定了 `transition` 元素的绝对定位，从而让动画向没有定位的方向运动
