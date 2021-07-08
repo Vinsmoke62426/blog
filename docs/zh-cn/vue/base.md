@@ -110,3 +110,23 @@ vue 中的 computed 和 methods 都`混入了 vue 实例中`，所以使用箭�
 首次进入缓存页面：beforeRouteEnter --> created --> mounted --> activated --> deactivated
 
 再次进入缓存页面：beforeRouteEnter --> activated --> deactivated
+
+### .sync 修饰符
+
+`当父组件传值进子组件，子组件想要改变这个值时，可以这么做`
+```js
+父组件里
+<children :foo="bar" @update:foo="val => bar = val"></children>
+
+子组件里
+this.$emit('update:foo', newValue)
+```
+简写 
+```
+父组件里
+<children :foo.sync="bar"></children>
+
+子组件里
+this.$emit('update:foo', newValue)
+
+```
