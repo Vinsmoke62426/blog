@@ -111,7 +111,9 @@ vue 中的 computed 和 methods 都`混入了 vue 实例中`，所以使用箭�
 
 再次进入缓存页面：beforeRouteEnter --> activated --> deactivated
 
-### .sync 修饰符
+### vue修饰符
+
+- .sync
 
 `当父组件传值进子组件，子组件想要改变这个值时，可以这么做`
 ```js
@@ -129,4 +131,55 @@ this.$emit('update:foo', newValue)
 子组件里
 this.$emit('update:foo', newValue)
 
+```
+- .keyCode
+```js
+当我们这么写事件的时候，无论按什么按钮都会触发事件
+<input type="text" @keyup="shout(4)">
+
+那么想要限制成某个按键触发怎么办？这时候keyCode修饰符就派上用场了
+<input type="text" @keyup.keyCode="shout(4)">
+```
+Vue提供的keyCode：
+
+//普通键
+
+.enter 
+
+.tab
+
+.delete //(捕获“删除”和“退格”键)
+
+.space
+
+.esc
+
+.up
+
+.down
+
+.left
+
+.right
+
+//系统修饰键
+
+.ctrl
+
+.alt
+
+.meta
+
+.shift
+
+例如（具体的键码请看[键码对应表](https://zhidao.baidu.com/question/266291349.html)）
+```js
+按 ctrl 才会触发
+<input type="text" @keyup.ctrl="shout(4)">
+
+也可以鼠标事件+按键
+<input type="text" @mousedown.ctrl.="shout(4)">
+
+可以多按键触发 例如 ctrl + 67
+<input type="text" @keyup.ctrl.67="shout(4)">
 ```
