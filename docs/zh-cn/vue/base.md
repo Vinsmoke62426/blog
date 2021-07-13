@@ -169,3 +169,32 @@ Vue提供的keyCode：
 可以多按键触发 例如 ctrl + 67
 <input type="text" @keyup.ctrl.67="shout(4)">
 ```
+
+### 作用域插槽
+
+插槽一般就作用域插槽用的多
+
+作用域插槽实际运用场景: 提供的组件可以从子组件获取数据
+
+```html
+//子组件
+<div class="box" v-for="item of list" :key="item.id">
+      <div class="box-title">
+        <p>
+          <span>{{item.deNo}}</span>
+          <!--我们为每个item准备了一个插槽，将item对象作为一个插槽的prop传入-->
+            <slot class="genre" v-bind:item="item"></slot>
+        </p>
+        <p>{{item.deDate}}</p>
+      </div>
+    </div>
+//父组件
+<div>
+    <!--1.作用域插槽必须是template开头和结尾的内容-->
+    <!--2.slot-scope="props"声明从子组件传递的数据都放在props里-->
+    <template slot-scope="props">
+        <!--告诉子组件模板的信息是以<span>标签的形式-->
+                <span class="genre">{{props.item.state}}</span>
+    </template>
+</div>
+```
