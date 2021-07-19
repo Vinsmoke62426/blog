@@ -219,7 +219,6 @@ arr.prop = 'property value';
 arr.forEach((elem, index) => {
   console.log(elem, index);
 });
-
 // Output:
 // 'a', 0
 // 'b', 1
@@ -240,7 +239,6 @@ arr.prop = 'property value';
 for (const key in arr) {
   console.log(key);
 }
-
 // Output:
 // '0'
 // '1'
@@ -266,7 +264,6 @@ const myMap = new Map()
 for (const [key, value] of myMap) {
   console.log(key, value);
 }
-
 // Output:
 // false, 'no'
 // true, 'yes'
