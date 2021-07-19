@@ -208,6 +208,80 @@ Chrome 上在右边可以点击查看所有的 事件
 
 ### forEach
 
-今天才知道，`forEach` 是无法被终止的，就算你找到了对应的元素，也无法跳出循环，所以适合做纯遍历
+- `forEach` 是无法被终止的，就算你找到了对应的元素，也无法跳出循环，所以适合做纯遍历
+- `forEach` 也不支持 `await` 
+- 无法遍历原型链上的属性
 
-同时，`forEach` 也不支持 `await` 
+```js
+const arr = ['a', 'b', 'c'];
+arr.prop = 'property value';
+
+arr.forEach((elem, index) => {
+  console.log(elem, index);
+});
+
+// Output:
+// 'a', 0
+// 'b', 1
+// 'c', 2
+```
+### for in
+
+`for in` 用来循环数组不是一个合适的选择
+
+- 迭代的是数组实例上所有可枚举的属性key,而不是数组内元素
+- 由于属性 key 是字符串，迭代出的元素索引是 string,不是 number
+- 优势是可以迭代原型链上的键值
+
+```js
+const arr = ['a', 'b', 'c'];
+arr.prop = 'property value';
+
+for (const key in arr) {
+  console.log(key);
+}
+
+// Output:
+// '0'
+// '1'
+// '2'
+// 'prop'
+```
+
+### for of
+
+for of 很适合遍历数组
+
+- 迭代所有数组元素
+- 内部支持 await，甚至是 ES2018 中引入的 for-await-of 语法
+- 可以使用 break 和 continue 跳出循环
+
+for of 的一个强大之处在于，可以遍历任何可迭代对象，例如 map
+
+```js
+const myMap = new Map()
+  .set(false, 'no')
+  .set(true, 'yes')
+;
+for (const [key, value] of myMap) {
+  console.log(key, value);
+}
+
+// Output:
+// false, 'no'
+// true, 'yes'
+```
+同理，可以用 [key, value] 的形式遍历数组，拿到数组的key 和 value
+
+```js
+const arr = ['chocolate', 'vanilla', 'strawberry'];
+
+for (const [index, value] of arr.entries()) {
+  console.log(index, value);
+}
+// Output:
+// 0, 'chocolate'
+// 1, 'vanilla'
+// 2, 'strawberry'
+```
+对于 `json` 对象可以使用  `Object.entries()` 方法返回一个给定对象自身可枚举属性的键值对数组,这个用的更多
