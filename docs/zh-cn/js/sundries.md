@@ -282,3 +282,11 @@ for (const [index, value] of arr.entries()) {
 // 2, 'strawberry'
 ```
 对于 `json` 对象可以使用  `Object.entries()` 方法返回一个给定对象自身可枚举属性的键值对数组,这个用的更多
+
+### 创建一个指定长度的对象数组
+
+```js
+Array.from({length: 3},(v, i)=>({number: i + 1, kkk: i -1}))
+
+[...Array(3)].map((v, i) => ({number: i + 1, kkk: i -1}))
+```
