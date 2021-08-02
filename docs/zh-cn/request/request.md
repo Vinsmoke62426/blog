@@ -93,3 +93,17 @@ taskkill /f /pid 18832
 
 一个机子还可以有多个网卡，类似于服务器
 
+### 掘金快速抽奖
+```js
+var ajax = new XMLHttpRequest();
+ajax.open('post','https://api.juejin.cn/growth_api/v1/lottery/draw',true);
+ajax.withCredentials = true;
+ajax.setRequestHeader('content-type','application/json; charset=utf-8');
+ajax.send(JSON.stringify({}));
+ajax.onreadystatechange = function (){
+    if(ajax.readyState==4&&ajax.status==200){
+        var c = ajax.responseText;
+        console.log(c)
+    }
+}
+```
