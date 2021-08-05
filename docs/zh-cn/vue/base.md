@@ -198,3 +198,14 @@ Vue提供的keyCode：
     </template>
 </div>
 ```
+
+### router mode
+router 的 `mode` 有两种类型， 默认的 `hash` 和 `history` 模式
+
+之前在做 web 转为 移动端 app 的时候，报错
+```
+loading chunk XX failed
+```
+将 mode 改为 默认的 `hash` 模式即可解决
+
+坑啊😥
