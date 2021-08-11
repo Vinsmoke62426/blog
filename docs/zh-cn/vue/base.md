@@ -209,3 +209,9 @@ loading chunk XX failed
 将 mode 改为 默认的 `hash` 模式即可解决
 
 坑啊😥
+
+### el-dialog 组件的 sync 关闭
+
+遇到 dialog 组件时，关闭弹框的时候会报，不能改变 props 中的内容，
+
+解决方法是，用 :before-close 回调方法去关闭，不用 @close 等事件
