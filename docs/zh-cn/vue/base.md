@@ -234,6 +234,7 @@ service.interceptors.request.use(
     if(config.url.includes('/pinqi')) {
       // 用判断去修改baseURL，之前用的是上面这种写法，说是不能直接修改 baseURL，会不起作用
       // 但是我试了一下下面这种直接修改的方式，上线之后也是成功的
+      
       // config.url = baseURL2 + config.url
       config.baseURL = baseURL2 
     }
