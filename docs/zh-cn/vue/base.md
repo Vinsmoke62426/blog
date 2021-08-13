@@ -215,3 +215,30 @@ loading chunk XX failed
 遇到 dialog 组件时，关闭弹框的时候会报，不能改变 props 中的内容，
 
 解决方法是，用 :before-close 回调方法去关闭，不用 @close 等事件
+
+### baseURL
+
+vue 项目配置代理的目的，一版都是为了解决跨越问题，如果是 dev 环境的话，直接配置 proxy 就行
+
+但是如果是 prod 环境，配置 axios 的 baseURL 就行，
+
+之前遇到过 线上环境有两个源的时候，要配置动态 baseURL
+```js
+const service = axios.create({
+  timeout: 5000,
+  baseURL: baseURL, // api的base_url
+});
+
+service.interceptors.request.use(
+  (config) => {
+    if(config.url.includes('/pinqi')) {
+      // 用判断去修改baseURL，之前用的是上面这种写法，说是不能直接修改 baseURL，会不起作用
+      // 但是我试了一下下面这种直接修改的方式，上线之后也是成功的
+      // config.url = baseURL2 + config.url
+      config.baseURL = baseURL2 
+    }
+    return config
+  },
+  (err) => { }
+);
+```
