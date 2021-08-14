@@ -123,3 +123,25 @@ closeViewer() {
 link 是异步的， GUI 渲染页面的时候遇到 link 会开辟新的 HTTP 线程
 
 @import 是同步的，GUI 渲染页面的时候遇到 @import 会等它获取新的样式回来后继续渲染，会阻塞加载
+
+### css 的 transition 对 display: none；不起作用
+
+因为 `transiton（过渡）`是基于数值和时间来计算的, 
+
+但是 display 只有两种 状态，显示和隐藏，所以不起作用。
+
+所以常见的 是配合 visibility + opacity 来做的
+```css
+/* 显示 */
+.show {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.3s;
+}
+/* 隐藏 */
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+}
+```
