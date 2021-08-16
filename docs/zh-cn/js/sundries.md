@@ -187,6 +187,18 @@ document.removeEventListener('DOMMouseScroll', this.cbScrollFirefox)
 <el nativeOnClick={this.nativeOnClickHandler} />
 ```
 
+### JSX $notify message
+```js
+message: (
+  <div onClick={this.handleClick}>
+    这是一段文字
+    <a target='_blank' href='https://www.jianshu.com/u/639201a5d397'>
+      <el-button size="small" type="primary">查看详情</el-button>
+    </a> 
+  </div>
+)
+```
+
 ### let that = this
 
 老生常谈的问题，`存储 this 指向`，之前在常规函数中见的比较多
