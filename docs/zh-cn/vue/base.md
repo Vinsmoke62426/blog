@@ -81,6 +81,44 @@ export default {
 
 tips: 因为递归组件需要 name，所以和函数式组件不能同时存在
 
+> [!Danger] 这里不对，函数式组件是可以写 name 的, 比如下面这样
+```js
+<script>
+export default {
+  name: 'MenuItem',
+  functional: true,
+  props: {
+    icon: {
+      type: String,
+      default: ''
+    },
+    title: {
+      type: String,
+      default: ''
+    }
+  },
+  render(h, context) {
+    // console.log(h, context)
+    const { icon, title } = context.props
+    const vnodes = []
+
+    if (icon) {
+      if (icon.includes('el-icon')) {
+        vnodes.push(<i class={[icon, 'sub-el-icon']} />)
+      } else {
+        vnodes.push(<svg-icon icon-class={icon}/>)
+      }
+    }
+
+    if (title) {
+      vnodes.push(<span slot='title'>{(title)}</span>)
+    }
+    return vnodes
+  }
+}
+</script>
+```
+
 ### `$ref` 和 `$el`  
 
 `this.$ref['标签上的ref名称']` 可以获取到一个 dom 元素。
