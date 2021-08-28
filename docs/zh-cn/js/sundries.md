@@ -172,6 +172,36 @@ document.removeEventListener('DOMMouseScroll', this.cbScrollFirefox)
 ```
 注意`上面的命名函数默认传参自己的 dom 本身` 这很重要。
 
+
+### 箭头函数 不适合的情况
+```js
+对象字面量
+{ name:'juejin', getName: () => this.name } 
+// 我们是期望 this 指向方法的调用者即 object， 不合适！
+
+DOM事件
+button.addEventListener('click', () => { ... }) 
+// 我们期望 this 指向 button， 不合适！
+
+原型
+String.prototype.customMethod = () => { ... } 
+// 我们期望 this 指向 String 的实例， 不合适！
+
+构造函数
+const Person = () => {}, 则new Person(...) 
+// 我们期望 this 指向 Person 的示例。不合适！
+```
+原因：
+
+箭头函数 没有自己的 `this` 对象，它内部的 `this` 指向定义时上层作用域中的 `this`
+
+无法使用 `bind`, `apply`, `call` 等手段改变箭头函数中的 `this` 指向
+
+也就是说，箭头函数内部的 `this` 指向是固定的，相比之下，普通函数的 `this` 指向是可变的(动态的)。
+
+面四种情况箭头函数的上下文中的 this 都是 window。 
+
+这四种情况如果都是用 function 就没问题，因为 function 中的 this 指向是动态的，始终指向 function 的调用者。
 ### arguments
 
 
