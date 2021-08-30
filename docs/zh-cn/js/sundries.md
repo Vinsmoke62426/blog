@@ -199,7 +199,7 @@ const Person = () => {}, 则new Person(...)
 
 也就是说，箭头函数内部的 `this` 指向是固定的，相比之下，普通函数的 `this` 指向是可变的(动态的)。
 
-面四种情况箭头函数的上下文中的 this 都是 window。 
+上面四种情况箭头函数的上下文中的 this 都是 window。 
 
 这四种情况如果都是用 function 就没问题，因为 function 中的 this 指向是动态的，始终指向 function 的调用者。
 ### arguments

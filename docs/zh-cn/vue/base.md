@@ -281,3 +281,77 @@ service.interceptors.request.use(
   (err) => { }
 );
 ```
+
+### 嵌套命名视图
+用嵌套命名视图做页面的布局是可行的：
+```js
+Viewer 是一个视图组件，里面可以放多个 <router-view></router-view>
+
+<template>
+    <div>
+        <router-view></router-view> //这里放的是Layout组件
+        <router-view name="owner" class="owner"></router-view> //这里放的是路由组件
+    </div>
+</template>
+
+// 单个
+{
+  path: '/home',
+  name: 'home',
+  component: Viewer,
+  meta: {
+    title: '首页'
+  },
+  children: [
+    {
+      path: '/home',
+      name: 'home',
+      components: {
+        default: Layout,
+        owner: () => import('../views/home/index.vue') 
+      },
+      meta: { title: 'index' }
+    }
+  ]
+}
+// 嵌套
+{
+  path: '/nested',
+  name: 'nested',
+  component: Viewer,
+  meta: {
+    title: '嵌套'
+  },
+  children: [
+    {
+      path: '/nested/menu2',
+      name: 'menu2',
+      components: {
+        default: Layout,
+        owner: Menu2
+      },
+      meta: { title: 'menu2' }
+    },
+    {
+      path: '/nested/menu1',
+      name: 'menu1',
+      components: {
+        default: Layout,
+        owner: Menu1
+      },
+      meta: { title: 'menu1' },
+      children: [
+        {
+          path: '/nested/menu1/menu11',
+          name: 'menu11',
+          components: {
+            default: Layout,
+            owner: Menu1
+          },
+          meta: { title: 'menu11' }
+        }
+      ]
+    }
+  ]
+}
+```
