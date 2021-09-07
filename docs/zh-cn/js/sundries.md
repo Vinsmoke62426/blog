@@ -356,3 +356,9 @@ if(!!a) {
 
 }
 ```
+
+### removeNode(el) 与 el.parentNode.removeChild(el)
+
+删除当前 dom 节点的时候，为什么不直接删除，而是 `el.parentNode.removeChild(el)`，获取当前dom的父节点再删除当前父节点的子节点呢？
+
+因为现代浏览器不支持 `removeNode(el)`，`removeNode` 只在 IE 浏览器下用
