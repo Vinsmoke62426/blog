@@ -68,7 +68,8 @@ const isNum = num =>  num !== '' && !isNaN(num)
 ```js
 // 简单的值类型数组深拷贝可以直接 解构 就行
 const obj = [1, 2, 3, 4]
-const [...copy] = obj
+const copy = [...obj]
+// const [...copy] = obj 这样也行
 
 // 复杂的数组 比如 对象数组 可以这样深拷贝
 const obj = [{a: 1, b: 2}, {a: 2, b: 3}]
