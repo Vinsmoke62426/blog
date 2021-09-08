@@ -64,10 +64,29 @@ const isNum = num =>  num !== '' && !isNaN(num)
 ### ~~ 运算符
 [将变量转化为Number类型](https://blog.csdn.net/weixin_37710888/article/details/82587296) 同时可以用于向下取整
 
-### 二维数组浅拷贝
+### 数组深拷贝
 ```js
-二维数组想浅拷贝，必须要对内层对数组进行解构，对外层解构无效，还是会改变原数组
-const [...newArray] = oldArray
+// 简单的值类型数组深拷贝可以直接 解构 就行
+const obj = [1, 2, 3, 4]
+const [...copy] = obj
+
+// 复杂的数组 比如 对象数组 可以这样深拷贝
+const obj = [{a: 1, b: 2}, {a: 2, b: 3}]
+const copy = obj.map(v => ({...v}))
+
+//对于二维及以上的复杂数组，可以用 JSON 序列化与反序列化 来深拷贝
+const obj = [1, [2, {aa: 2}, [4]], {aa: 5, cc: { dd: 6 }}]
+const copy = JSON.parse(JSON.stringify(obj))
+// 这种处理方式很方便,基本可以应对绝大部分情况，但是 有缺陷
+// 1.拷贝的对象的值中如果有函数、undefined、symbol，则经过 JSON.stringify() 序列化后的 JSON 字符串中这个键值对会消失
+// 2.无法拷贝不可枚举的属性，无法拷贝对象的原型链
+// 3.拷贝 Date 引用类型会变成字符串
+// 4.拷贝 RegExp 引用类型会变成空对象
+// 5.对象中含有 NaN、Infinity 和 -Infinity，则序列化的结果会变成 null
+// 6.无法拷贝对象的循环应用（即 objkey = obj）
+
+// 最简单的还是使用 lodash 来处理
+const copy = _.cloneDeep(obj)
 ```
 
 ### 使你的网址在1分钟内提高1%
