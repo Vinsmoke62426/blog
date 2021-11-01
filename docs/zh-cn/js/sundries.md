@@ -286,6 +286,11 @@ arr.forEach((elem, index) => {
 // 'b', 1
 // 'c', 2
 ```
+
+### map
+- map 和 forEach 这类的最大区别在于，map 有返回值，返回一个处理之后的不改变原数组的新数组。（正常操作，map 和 forEach 都不改变原数组，但是 forEach 没有返回值）
+- map 是对数组的每一项 做操作，map 和 forEach 一样无法跳出循环（break）
+
 ### for in
 
 `for in` 用来循环数组不是一个合适的选择
