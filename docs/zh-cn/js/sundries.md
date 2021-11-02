@@ -387,3 +387,9 @@ if(!!a) {
 删除当前 dom 节点的时候，为什么不直接删除，而是 `el.parentNode.removeChild(el)`，获取当前dom的父节点再删除当前父节点的子节点呢？
 
 因为现代浏览器不支持 `removeNode(el)`，`removeNode` 只在 IE 浏览器下用
+
+### 页面禁止复制
+
+局部禁止复制可以直接加属性 `onselectstart="return false"` 实测，直接在控制台中删掉，好像也是不行的
+
+其他方式可以看 [这里](https://www.cnblogs.com/war-hzl/p/4794698.html)
