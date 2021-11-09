@@ -15,6 +15,7 @@
     - [权限控制](zh-cn/vue/permission.md)
     - [环境变量配置](zh-cn/vue/params.md)
     - [element-ui](zh-cn/vue/element-ui.md)
+    - [webpack](zh-cn/vue/webpack.md)
 
 - Js
     - [杂项](zh-cn/js/sundries.md)
