@@ -393,3 +393,20 @@ if(!!a) {
 局部禁止复制可以直接加属性 `onselectstart="return false"` 实测，直接在控制台中删掉，好像也是不行的
 
 其他方式可以看 [这里](https://www.cnblogs.com/war-hzl/p/4794698.html)
+
+### try { } catch() {} 和 .then().catch() 和 promise(resolve, reject) 
+
+.then() 是 Promise 的，专门用来处理异步的
+
+而 resolve 和 reject 是 .then() 的两个函数，resolve 是必须，reject 可选，reject 等同于 .catch(), 因为 .catch() 内部调用的就是 reject
+
+try{}catch() {} 和上面的最大不同在于 `专门用来捕获未知的系统错误或者请求错误`, 
+
+未知的系统错误 我们懂，指出错之后可能会导致白屏，堆栈溢出,等用户体验很不好的页面错误， 或者后端是微服务，有多个不同模块的接口，一个服务出错导致其他未知错误的情况也有可能
+
+那为什么说是`或者请求错误`呢？
+
+因为 try catch 本身`不能捕获异步的错误，只能捕获同步异常`，它不是万能的，我们想捕获异步错误，一般都是在 .then()后面接 .catch()里面处理
+
+如果一定要用 try catch 捕获异步请求中的错误，只能 用 async await 将异步变成同步了，这样我觉得是不太好的，只有本身是同步的请求，同时还要捕获请求中的异常的情况下，才需要这样做，否则是不建议用 try catch 来捕获请求中的异常的
+
