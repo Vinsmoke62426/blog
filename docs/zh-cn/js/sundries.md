@@ -89,6 +89,7 @@ const copy = JSON.parse(JSON.stringify(obj))
 // 最简单的还是使用 lodash 来处理
 const copy = _.cloneDeep(obj)
 ```
+[包括对象的深拷贝及其他详细内容](https://cloud.tencent.com/developer/article/1417051)
 
 ### 使你的网址在1分钟内提高1%
 ```js
@@ -288,12 +289,13 @@ arr.forEach((elem, index) => {
 ```
 
 ### map
-- map 和 forEach 这类的最大区别在于，map 有返回值，返回一个处理之后的不改变原数组的新数组。（正常操作，map 和 forEach 都不改变原数组，但是 forEach 没有返回值）
-- map 是对数组的每一项 做操作，map 和 forEach 一样无法跳出循环（break）
+- `map` 和 `forEach` 这类的最大区别在于，`map` 有返回值，返回一个处理之后的不改变原数组的新数组。
+- 正常情况下，`map` 和 `forEach` 都不改变原数组，但是 `forEach` 没有返回值
+- map 是对数组的每一项 做操作，`map` 和 `forEach` 一样无法使用 `break` 中断循环，同时 `forEach` 还不能 使用 `return` 返回到外层函数
 
 ### for in
 
-`for in` 用来循环数组不是一个合适的选择
+`for in` 用来循环数组不是一个合适的选择，更适合遍历对象
 
 - 迭代的是数组实例上所有可枚举的属性key,而不是数组内元素
 - 由于属性 key 是字符串，迭代出的元素索引是 string,不是 number
@@ -315,11 +317,12 @@ for (const key in arr) {
 
 ### for of
 
-for of 很适合遍历数组
+`for of` 很适合遍历数组
 
 - 迭代所有数组元素
+- `for of` 和 `for in` 的最大区别在于，通常情况下不经过处理的 `for of` 只能遍历到数组的 value，而 `for in` 只能遍历到数组的 key
 - 内部支持 await，甚至是 ES2018 中引入的 for-await-of 语法
-- 可以使用 break 和 continue 跳出循环
+- 可以使用 `break` 和 `continue` 和 `return`
 
 for of 的一个强大之处在于，可以遍历任何可迭代对象，例如 map
 
