@@ -5,3 +5,12 @@
 ### GitHub 可以直接在网页开启代码编辑
 
 在 对应的仓库主页点击按钮 `.`, 会进入一个 vscode 的编辑页面
+
+### git clone 失败，文件太大
+
+遇到过代码中有 3D建模的情况，clone 的时候报错
+
+解决方法：只 clone 最新的 commit 
+```
+git clone  --depth=1 ssh://git@104.XXX.XXX.XXX:27681/home/git/warehouse/roysue.git
+```
