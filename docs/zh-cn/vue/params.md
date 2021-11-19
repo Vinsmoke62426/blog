@@ -11,3 +11,12 @@
 ### vue-cli 3.x-
 
 ![](../../images/params-1.png)
+
+### 多环境打包配置
+[这个是vuecli2的操作方式](https://www.cnblogs.com/dianzan/p/13151950.html)
+详细的，可以查看天津项目的配置，就是按照这个来的
+
+vuecli3 的多环境打包 很简单，关键点是 后面的 --mode xxx, 然后再创建对应的 .env.xxx 的文件
+```js
+"build:stage": "vue-cli-service build --mode staging",
+```
