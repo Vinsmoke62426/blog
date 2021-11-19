@@ -14,3 +14,6 @@
 ```
 git clone  --depth=1 ssh://git@104.XXX.XXX.XXX:27681/home/git/warehouse/roysue.git
 ```
+
+### 解决 github 访问慢的问题
+[直接用里面的host就行，很方便](https://github.com/521xueweihan/GitHub520)
