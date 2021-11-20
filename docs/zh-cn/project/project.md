@@ -66,3 +66,7 @@ input:-webkit-autofill{
 ```
 
 ## classList是list格式，不能用数组的方法， 而 js 没有 contains 这个方法（类似与 includes ），为啥也可以用
+
+
+## 关于用 vscode debugger
+个人觉得 浏览器本身的调试已经很厉害了，基本不能避免不开控制台的，所以，vscode debugger 多此一举
