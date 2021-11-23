@@ -194,6 +194,16 @@ document.removeEventListener('DOMMouseScroll', this.cbScrollFirefox)
 注意`上面的命名函数默认传参自己的 dom 本身` 这很重要。
 
 
+### addEventListener scroll事件
+```js
+document.addEventListener('scroll', this.onScroll)
+```
+这样添加滚动条事件，一直无效，后来发现是要
+```js
+document.addEventListener('scroll', this.onScroll, true)
+```
+用 饿了么 的 backtop 组件一直无法生效，自己写的回到顶部事件的时候发现的这个问题，很坑
+
 ### 箭头函数 不适合的情况
 ```js
 对象字面量
