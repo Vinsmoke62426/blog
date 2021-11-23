@@ -167,3 +167,17 @@ link 是异步的， GUI 渲染页面的时候遇到 link 会开辟新的 HTTP �
     position: absolute;
 }
 ```
+### js 中使用 sass 变量
+```js
+/* config.scss */
+$primary-color: #f40;
+
+:export {
+  primaryColor: $primary-color;
+}
+
+/* app.js */
+import style from "config.scss";
+// 会输出 #F40
+console.log(style.primaryColor)
+```
