@@ -26,7 +26,7 @@ const getTree = arr => {
     return res
 }
 ```
-### Array.from 将维数组转换为真数组
+### Array.from 将伪数组转换为真数组
 ```js
 类似于 Array.from(document.querySelectorAll('.item.d2')) 
 
