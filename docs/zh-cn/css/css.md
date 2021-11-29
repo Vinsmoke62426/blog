@@ -181,3 +181,19 @@ import style from "config.scss";
 // 会输出 #F40
 console.log(style.primaryColor)
 ```
+
+### div超出宽度自动换行
+遇到了超出div不换行的div，很奇怪，之前都没遇到过，只能用下面这种方式强行换行了
+
+父子任意一个加上对应的样式都行
+```css
+.parent {
+    width: 200px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.children {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+```
