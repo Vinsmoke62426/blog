@@ -119,6 +119,18 @@ export default {
 </script>
 ```
 
+### 为什么要用 Vue.set()
+
+Vue2.x实现双向数据绑定原理，是通过es5的 Object.defineProperty，根据具体的key去读取和修改。
+
+其中的setter方法来实现数据劫持的，getter实现数据的修改。
+
+但是必须先知道想要拦截和修改的key是什么，所以vue2对于新增的属性无能为力，
+
+比如无法监听属性的添加和删除、数组索引和长度的变更，
+
+vue2的解决方法是使用Vue.set(object, propertyName, value) 等方法向嵌套对象添加响应式。
+
 ### `$ref` 和 `$el`  
 
 `this.$ref['标签上的ref名称']` 可以获取到一个 dom 元素。

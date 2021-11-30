@@ -17,3 +17,8 @@ git clone  --depth=1 ssh://git@104.XXX.XXX.XXX:27681/home/git/warehouse/roysue.g
 
 ### 解决 github 访问慢的问题
 [直接用里面的host就行，很方便](https://github.com/521xueweihan/GitHub520)
+
+### github fork 其他人代码的全套流程
+
+fork 别人的仓库到自己的仓库中，方便自己更改
+
