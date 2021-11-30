@@ -185,7 +185,7 @@ console.log(style.primaryColor)
 ### div超出宽度自动换行
 遇到了超出div不换行的div，很奇怪，之前都没遇到过，只能用下面这种方式强行换行了
 
-父子任意一个加上对应的样式都行
+父子元素都要加上样式，否则会出现显示问题
 ```css
 .parent {
     width: 200px;
