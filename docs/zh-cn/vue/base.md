@@ -119,17 +119,17 @@ export default {
 </script>
 ```
 
-### 为什么要用 Vue.set()
+### 什么时候要用 Vue.set()
 
-Vue2.x实现双向数据绑定原理，是通过es5的 Object.defineProperty，根据具体的key去读取和修改。
+Vue2.x 实现双向数据绑定原理，是通过 es5 的 Object.defineProperty，手动去定义一个 getter 和 setter，根据具体的key去读取和修改。
 
-其中的setter方法来实现数据劫持的，getter实现数据的修改。
+其中的 setter 方法来实现数据劫持的，getter 实现数据的修改。
 
-但是必须先知道想要拦截和修改的key是什么，所以vue2对于新增的属性无能为力，
+但是必须先知道想要拦截和修改的 key 是什么，所以 vue2 对于新增的属性无能为力，
 
 比如无法监听属性的添加和删除、数组索引和长度的变更，
 
-vue2的解决方法是使用Vue.set(object, propertyName, value) 等方法向嵌套对象添加响应式。
+vue2 的解决方法是使用 Vue.set(object, propertyName, value) 等方法向嵌套对象添加响应式。
 
 ### `$ref` 和 `$el`  
 
@@ -151,9 +151,9 @@ methods 里面的函数，只要你调用，就执行。
 
 vue 中的 computed 和 methods 都`混入了 vue 实例中`，所以使用箭头函数指向的不是当前组件，要用常规函数
 
-### keepAlive
+### keepAlive 生命周期
 
-正常生命周期：beforeRouteEnter --> created --> mounted --> updated -->destroyed
+正常生命周期：beforeRouteEnter --> created --> mounted --> updated --> destroyed
 
 使用keepAlive后生命周期：
 
@@ -229,23 +229,23 @@ Vue提供的keyCode：
 ```html
 //子组件
 <div class="box" v-for="item of list" :key="item.id">
-      <div class="box-title">
-        <p>
-          <span>{{item.deNo}}</span>
-          <!--我们为每个item准备了一个插槽，将item对象作为一个插槽的prop传入-->
-            <slot class="genre" v-bind:item="item"></slot>
-        </p>
-        <p>{{item.deDate}}</p>
-      </div>
-    </div>
+  <div class="box-title">
+    <p>
+      <span>{{item.deNo}}</span>
+      <!--我们为每个item准备了一个插槽，将item对象作为一个插槽的prop传入-->
+        <slot class="genre" v-bind:item="item"></slot>
+    </p>
+    <p>{{item.deDate}}</p>
+  </div>
+</div>
 //父组件
 <div>
-    <!--1.作用域插槽必须是template开头和结尾的内容-->
-    <!--2.slot-scope="props"声明从子组件传递的数据都放在props里-->
-    <template slot-scope="props">
-        <!--告诉子组件模板的信息是以<span>标签的形式-->
-                <span class="genre">{{props.item.state}}</span>
-    </template>
+  <!--1.作用域插槽必须是template开头和结尾的内容-->
+  <!--2.slot-scope="props"声明从子组件传递的数据都放在props里-->
+  <template slot-scope="props">
+    <!--告诉子组件模板的信息是以<span>标签的形式-->
+    <span class="genre">{{props.item.state}}</span>
+  </template>
 </div>
 ```
 
