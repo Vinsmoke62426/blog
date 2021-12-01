@@ -16,6 +16,7 @@
     - [环境变量配置](zh-cn/vue/params.md)
     - [element-ui](zh-cn/vue/element-ui.md)
     - [webpack](zh-cn/vue/webpack.md)
+    - [报错记录](zh-cn/vue/error.md)
 
 - Js
     - [杂项](zh-cn/js/sundries.md)
