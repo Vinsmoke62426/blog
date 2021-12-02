@@ -19,9 +19,9 @@ module.exports = {
 }
 ```
 > [!WARNING]
-> 注意：配置了上面的代理后，类似 /api/xxx/xxx 这样的接口地址 会被代理为
+> 注意：配置了上面的代理后，类似 /api/xxx/xxx 这样的接口地址 会被代理为 http://my.com:8888/xxx/xxx
 > 
->  http://my.com:8888/xxx/xxx' 去掉了 /api，加上了代理地址 'http://my.com:8888
+> 去掉了 /api，加上了代理地址 http://my.com:8888
 > 
 > 同时，请求被 dev-server拦截之后，浏览器是不会显示代理之后的 url 的，但是实际上是有效果的，这点很容易让人搞混淆
 > 
