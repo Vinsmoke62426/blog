@@ -33,6 +33,9 @@
 - React
     - [React相关](zh-cn/react/react.md)
 
+- Ts
+    - [初识typescipt](zh-cn/react/hello.md)
+
 - 面试
     - [面试](zh-cn/offer/offer.md)
 
