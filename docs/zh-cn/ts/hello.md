@@ -1,5 +1,5 @@
 ### hello typescript
-vue create 创建的带 ts 的项目中的初始依赖。
+vue create 创建的带 ts 的 vue2.x 项目中的初始依赖。
 ```json
 // pakage.json
 {

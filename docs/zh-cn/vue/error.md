@@ -22,3 +22,13 @@ Unexpected token '<'
 publicPath: IS_PROD ? './' : '/',
 ```
 疑问：之前发布打包都没有遇到这种问题，根本不需要配置 publicPath,不知道为什么有时候就一定要手动去配置
+
+### tsconfig.json 文件报错
+
+在给 vue2.x 项目加入 ts 时，tsconfig.json 文件头部报错
+```
+在配置文件tsconfig.json中找不到任何输入。指定的 "include" 路径为"["**/*"]"，"exclude" 路径为"[]"
+```
+原因：创建tsconfig.json配置文件时，vscode会自动检测当前项目当中是否有ts文件，若没有则报错，提示用户需要创建一个ts文件后，再去使用typescript。
+
+解决方法：随便加一个空的 .ts 文件 或者改一个 .ts 文件。(sb报错)
