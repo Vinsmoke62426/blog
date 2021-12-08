@@ -1,3 +1,30 @@
+## vuecli3 打包加前缀
+  
+分三块
+
+1. 静态资源加前缀
+```js
+// vueconfig.js
+module.exports = {
+    publicPath: '/proxy-tj/tj-xqxy-out/',
+}
+```
+2. 路由加前缀
+```js
+// router.js
+const router = new Router({
+  mode: "history",
+  base: "/proxy-tj/tj-xqxy-out/",
+})
+```
+3. 接口加前缀
+```js
+// request.js
+const service = axios.create({
+  timeout: 5000,
+  baseURL: '/proxy-tj/tj-xqxy-out/',
+});
+```
 ## 河北项目左侧菜单有时有有时没有
 ```
 用链接请求后端图标库的时候，忘记在地址前面加斜杠“/” 导致左侧菜单有时候显示图标，有时候不显示，
