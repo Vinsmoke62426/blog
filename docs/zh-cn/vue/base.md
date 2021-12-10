@@ -129,7 +129,7 @@ Vue2.x 实现双向数据绑定原理，是通过 es5 的 Object.defineProperty�
 
 比如无法监听属性的添加和删除、数组索引和长度的变更，
 
-vue2 的解决方法是使用 Vue.set(object, propertyName, value) 等方法向嵌套对象添加响应式。
+vue2 的解决方法是使用 vue 的全局方法 Vue.set(object, propertyName, value) 等方法向嵌套对象添加响应式。
 
 ### `$ref` 和 `$el`  
 
