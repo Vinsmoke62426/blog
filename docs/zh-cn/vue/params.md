@@ -33,3 +33,6 @@ vuecli3 的多环境打包 很简单，只需要两步
 NODE_ENV = 'prodInLight'
 ```
 tips: 内部如果要新写变量，一定要 VUE_APP_ 开头，建议变量名称也用大写（常量）
+> [!Danger]
+> 在配置 .env 文件的时候，发现开发环境下的 .env 文件只能写成 .env.development。写成 .env.dev 无效，获取到的 process.env 是默认的 development 的，这点要注意
+
