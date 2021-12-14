@@ -1,4 +1,4 @@
-### vueconfig.js 配置代理
+## vueconfig.js 配置代理
 ```js
 module.exports = {
     devServer: {
@@ -29,7 +29,7 @@ module.exports = {
 
 
 
-### sass 配置全局混入
+## sass 配置全局混入
 之前用 sass 做主题切换的时候，涉及到要混入 sass 变量，具体如何混入，vue-cli2.x 和 vue-cli3.x 还是有区别的
 
 1. 无论是 2.x 还是 3.x，都需要提前安装三个依赖
@@ -84,4 +84,7 @@ return {
 ```
 
 3. 然后记得重启项目，就可以直接使用 你在 common.scss 文件中定义的全局变量了 如 `$hb-dark-theme-deep`, `$eisp-menu-bg`
+
+
+## 配置打包分析工具 webpack-bundle-analyzer
    
