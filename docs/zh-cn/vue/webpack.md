@@ -1,3 +1,7 @@
+## vue.config.js
+
+[首先看官网，写的已经是相当详细了](https://cli.vuejs.org/zh/config/#%E5%85%A8%E5%B1%80-cli-%E9%85%8D%E7%BD%AE)
+
 ## vueconfig.js 配置代理
 ```js
 module.exports = {
@@ -87,4 +91,34 @@ return {
 
 
 ## 配置打包分析工具 webpack-bundle-analyzer
-   
+### 安装依赖
+```
+npm install webpack-bundle-analyzer --save-dev
+```
+
+### webpack配置
+```js
+// vue.config.js
+module.exports = {
+    chainWebpack: config => {
+        // 我们这里配置 只在生成环境下才分析，这里的判断可以自行修改
+        config.when(process.env.NODE_ENV === 'production', config => {
+            // 引入插件 并使用插件
+            config.plugin('webpack-bundle-analyzer').use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+        })
+    }
+}
+```
+### 脚本配置
+```json
+// pakage.json
+"scripts": {
+    "analyz": "NODE_ENV=production npm_config_report=true npm run build"
+}
+```
+
+### 执行命令
+```
+npm run build
+```
+tips: 浏览器自动打开 http://127.0.0.1:8888，如果8888 端口被占用，则提示打包失败
