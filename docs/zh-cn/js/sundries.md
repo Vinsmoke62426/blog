@@ -1,27 +1,42 @@
-### 原型链
+### 原型链以及继承
 [先看阮一峰老师写的js继承，浅显易懂](http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html)
 
 [看的第一篇](https://juejin.cn/post/6844904069887164423)
 
 [这个写的非常好,从头到尾多看看](https://juejin.cn/post/6844903837623386126)
 
-原型链的核心点在于`__proto__` 和 `prototype`
-
-先看概念知识：
-
-显示原型：`prototype`，
-
-隐式原型：`__proto__`
+先看例子，不看概念
 
 ```js
 function Person() {}
 var person1 = new Person()
 var person2 = new Person()
-```
-对象的`隐式原型`的值为其对应`构造函数的显式原型`的值
-```js
+
 person1.__proto__ === Person.prototype //true
 ```
+`new` 一个实例对象`person1`，实例对象 `继承` 自它的构造函数 `Person`
+
+所以对象 `person1.__proto__`的值 就是其对应 `构造函数` `Person.prototype`的值，`这很关键`
+
+由于构造函数上的公有属性都放在了它的`prototype`上，
+
+所以，想知道当前对象的构造函数上有那些公有属性可以调用，可以直接`person1.__proto__`拿到
+> [!TIP]
+> 由于你的构造函数也可能有构造函数，然后所有函数的构造函数都是 Function，
+> 
+> 然后Function的构造函数是 Object（因为在js中，万物皆对象），最后Object的构造函数是 null，然后就到头了，这就是`原型链`。
+>
+> 就这样层层关联，js就是用这种原型链的形式，实现的`继承`
+
+
+
+基本概念：
+
+显示原型：`prototype`，
+
+隐式原型：`__proto__` （浏览器上的`<prototype>`和`[[prototype]]`和 `__proto__` 意义相同）
+
+原型链的核心点在于`__proto__` 和 `prototype`
 
 ### 将扁平数组转化为树状结构
 ```js
