@@ -1,7 +1,27 @@
 ### 原型链
+[先看阮一峰老师写的js继承，浅显易懂](http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html)
+
 [看的第一篇](https://juejin.cn/post/6844904069887164423)
 
 [这个写的非常好,从头到尾多看看](https://juejin.cn/post/6844903837623386126)
+
+原型链的核心点在于`__proto__` 和 `prototype`
+
+先看概念知识：
+
+显示原型：`prototype`，
+
+隐式原型：`__proto__`
+
+```js
+function Person() {}
+var person1 = new Person()
+var person2 = new Person()
+```
+对象的`隐式原型`的值为其对应`构造函数的显式原型`的值
+```js
+person1.__proto__ === Person.prototype //true
+```
 
 ### 将扁平数组转化为树状结构
 ```js
