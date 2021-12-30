@@ -41,6 +41,9 @@
 - 面试
     - [面试](zh-cn/offer/offer.md)
 
+- vscode
+    - [生产力](zh-cn/vscode/base.md)
+
 - 中文技术文档的写作规范
     - [标题](zh-cn/documentStyle/title.md)
     - [文本](zh-cn/documentStyle/text.md)
