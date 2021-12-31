@@ -71,7 +71,6 @@ body {
 }
 ```
 ### 滚动条的锁定与解除锁定
-
 项目中涉及到弹出层弹出时，应该锁定背景 body 的滚动锁定，这种需求时，最开始是这样做的
  
 先 `document.body.style.hidden = 'hidden'` 锁定
@@ -107,7 +106,6 @@ closeViewer() {
 来限制设定了 `transition` 元素的绝对定位，从而让动画向没有定位的方向运动
 
 ### 浮动
-
 什么是浮动，为什么要清除浮动：
 
 直白的讲，就是一版布局的时候，都是父元素不设置高度，子元素设置高度来撑起父元素。
@@ -117,7 +115,6 @@ closeViewer() {
 所以，清除浮动本质上是，父元素因为子元素浮动引起内部高度为 0 的问题
 
 ### link 和 @import 的区别
-
 在 html 的 head 里面，用 link 标签引入样式和在 style 中用 @import url() 引入样式的区别
 
 link 是异步的， GUI 渲染页面的时候遇到 link 会开辟新的 HTTP 线程
@@ -125,7 +122,6 @@ link 是异步的， GUI 渲染页面的时候遇到 link 会开辟新的 HTTP �
 @import 是同步的，GUI 渲染页面的时候遇到 @import 会等它获取新的样式回来后继续渲染，会阻塞加载
 
 ### css 的 transition 对 display: none；不起作用
-
 因为 `transiton（过渡）`是基于数值和时间来计算的, 
 
 但是 display 只有两种 状态，显示和隐藏，所以不起作用。
@@ -147,7 +143,6 @@ link 是异步的， GUI 渲染页面的时候遇到 link 会开辟新的 HTTP �
 ```
 
 ### 伪类设置图片
-
 伪类设置图片 如果直接用设计给定的 svg 图，可以直接用 content 里面加 url 地址即可
 ```css
 :before{
@@ -197,3 +192,14 @@ console.log(style.primaryColor)
     word-wrap: break-word;
 }
 ```
+
+### css用静态图片实现gif的效果
+之前看到`TDesign`的首页有一个效果
+
+鼠标hover，图片动起来，挺有意思的，像是gif图一样的效果，但是不是
+
+实现方法：
+
+设计方面：切一张长图片，将每一步动画按顺序从上到下排列整齐
+
+开发方面：css 用 `background-position-y`上下位移
