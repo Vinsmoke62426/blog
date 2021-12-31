@@ -1,6 +1,5 @@
 ## Vue实例
 ### vue.use() 和 new vue() 的联系
-
 `vue.use()` 是让你能在 .vue 文件中使用 this 访问对应的插件，如 `this.$router`, `this.$store`, 否则打印`this`的时候里面是没有`$router`和`$store`的
 
 但是在main.js文件中，一般会有下面的代码
@@ -44,7 +43,6 @@ tips: `vue.use()`必须在`new vue()`之前，`use()`的时候括号里面插件
 所以我们会看到有那么一瞬间会显示出`index.html`中正文的内容。
 
 ### 函数式组件
-
 常规写法：
 ```vue
 <template>
@@ -120,7 +118,6 @@ export default {
 ```
 
 ### 什么时候要用 Vue.set()
-
 Vue2.x 实现双向数据绑定原理，是通过 es5 的 Object.defineProperty，手动去定义一个 getter 和 setter，根据具体的key去读取和修改。
 
 其中的 setter 方法来实现数据劫持的，getter 实现数据的修改。
@@ -132,7 +129,6 @@ Vue2.x 实现双向数据绑定原理，是通过 es5 的 Object.defineProperty�
 vue2 的解决方法是使用 vue 的全局方法 Vue.set(object, propertyName, value) 等方法向嵌套对象添加响应式。
 
 ### `$ref` 和 `$el`  
-
 `this.$ref['标签上的ref名称']` 可以获取到一个 dom 元素。
 
 如果 `this.$ref['子组件上的ref名称']` 得到的就是子组件的实例，你可以在后面接着使用子组件的方法。
@@ -142,7 +138,6 @@ vue2 的解决方法是使用 vue 的全局方法 Vue.set(object, propertyName, 
 `this.$ref['子组件上的ref名称'].$el.offsetTop` (用来获取子组件的 offsetTop)
 
 ### computed 和 methods
-
 computed 和 methods 里面函数的区别在于:
 
 computed 里面的函数调用的时候不需要带括号，带有缓存的能力，初始的时候会执行一次，只要其监听的数据不改变，则不改变，执行时直接返回上一次的值。
@@ -152,7 +147,6 @@ methods 里面的函数，只要你调用，就执行。
 vue 中的 computed 和 methods 都`混入了 vue 实例中`，所以使用箭头函数指向的不是当前组件，要用常规函数
 
 ### keepAlive 生命周期
-
 正常生命周期：beforeRouteEnter --> created --> mounted --> updated --> destroyed
 
 使用keepAlive后生命周期：
@@ -164,7 +158,6 @@ vue 中的 computed 和 methods 都`混入了 vue 实例中`，所以使用箭�
 ### vue修饰符
 
 #### .sync
-
 `当父组件传值进子组件，子组件想要改变这个值时，可以这么做`
 ```html
 父组件里
@@ -221,7 +214,6 @@ Vue提供的keyCode：
 ```
 
 ### 作用域插槽
-
 插槽一般就作用域插槽用的多
 
 作用域插槽实际运用场景: 提供的组件可以从子组件获取数据
@@ -250,13 +242,11 @@ Vue提供的keyCode：
 ```
 
 ### el-dialog 组件的 sync 关闭
-
 遇到 dialog 组件时，关闭弹框的时候会报，不能改变 props 中的内容，
 
 解决方法是，用 :before-close 回调方法去关闭，不用 @close 等事件
 
 ### baseURL
-
 vue 项目配置代理的目的，一版都是为了解决跨越问题，如果是 dev 环境的话，直接配置 proxy 就行
 
 但是如果是 prod 环境，配置 axios 的 baseURL 就行，
@@ -358,9 +348,25 @@ Viewer 是一个视图组件，里面可以放多个 <router-view></router-view>
 ```
 
 ### beforeRouteLeave(to, from, next)
-
 第一次在组件内部使用 `beforeRouteLeave`, 这个本身是一个路由离开页面的钩子
 
 但是在组件内部中直接使用时，是作为一个生命周期来使用的，然后用的时候出现了不生效的问题
 
 原因是：这个生命周期只能在上级的父组件中使用，子组件使用无效，这个挺坑的
+
+### 重组data()中的数据
+重组 `data()` 中的数据时，如果 `data()` 中，使用了 `this` 来调用 `props 中的变量` 或者 `methods 中的函数`
+
+建议使用
+```js
+Object.assign(this.$data, this.$options.data.call(this))
+```
+这里修改了 `this.$options.data()` 的 `this` 指向，否则控制台会报错
+
+通常情况下重组 `data()` 直接像下面这样就行
+```js
+// 重组data
+Object.assign(this.$data, this.$options.data())
+// 重组data中的某一个变量
+Object.assign(this.$data.form, this.$options.data().form)
+```
