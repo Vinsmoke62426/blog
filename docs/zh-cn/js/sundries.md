@@ -98,6 +98,27 @@ const getTree = arr => {
     return res
 }
 ```
+### Array.prototype.flat()
+扁平化简易数组 
+
+`var newArray = arr.flat([depth])`
+
+`depth` 默认为 1 
+```js
+const arr1 = [0, 1, 2, [3, 4]];
+
+console.log(arr1.flat());
+// expected output: [0, 1, 2, 3, 4]
+
+const arr2 = [0, 1, 2, [[[3, 4]]]];
+
+console.log(arr2.flat(2));
+// expected output: [0, 1, 2, [3, 4]]
+```
+
+### 类型化数组
+让js处理二进制文件 [详见MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Typed_arrays)
+
 ### Array.from 将伪数组转换为真数组
 ```js
 类似于 Array.from(document.querySelectorAll('.item.d2')) 
