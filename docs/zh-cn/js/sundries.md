@@ -39,11 +39,19 @@ person1.__proto__ === Person.prototype //true
 原型链的核心点在于`__proto__` 和 `prototype`
 
 ### 为什么要用call,apply,bind
-这三个都是用来改变 this 指向的，只不过传参不同。
+这三个都是用来改变 `this` 指向的
 
-call，apply 是立即执行的，bind 则返回一个函数
+首先 `call` 和 apply 基本相同，只不过 `call` 传参是多个参数分开传，`apply` 传参是多个参数以数组的形式一起传
+- fun.call(thisArg[, arg1[, arg2[, ...]]])
+- fun.apply(thisArg, [argsArray])
 
-那为什么要改变 this 指向呢，在什么场景下会用到？
+`bind` 单独拿出来，传参和 call 相同
+- fun.bind(thisArg[, arg1[, arg2[, ...]]])
+
+但是和前面两个不同，`bind` 不立即执行，`返回一个原函数的拷贝，并拥有指定的 this 值和初始参数`，所以`需要我们手动调用函数`
+
+> [!TIP]
+> 那为什么要改变 this 指向呢，在什么场景下会用到上述方法呢？
 
 一般情况都是为了 `将不存在当前对象的方法挂在到自己对象上`
 
