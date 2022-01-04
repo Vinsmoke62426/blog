@@ -38,6 +38,30 @@ person1.__proto__ === Person.prototype //true
 
 原型链的核心点在于`__proto__` 和 `prototype`
 
+### 为什么要用call,apply,bind
+这三个都是用来改变 this 指向的，只不过传参不同。
+
+call，apply 是立即执行的，bind 则返回一个函数
+
+那为什么要改变 this 指向呢，在什么场景下会用到？
+
+一般情况都是为了 `将不存在当前对象的方法挂在到自己对象上`
+
+比如下面这个典型的例子
+```js
+function test(){
+	console.log(typeof arguments)
+	//通过输出可以看到，arguments是类数组对象
+	//如果我们想要把传入的参数转为数组，就需要借用call，将slice方法挂到arguments上，从而实现我们要的功能
+	let args = Array.prototype.slice.call(arguments,0)
+	console.log(args);
+}
+test(1,2,3);
+//输出
+//object
+//[1,2,3]
+```
+
 ### 将扁平数组转化为树状结构
 ```js
 const getTree = arr => {
