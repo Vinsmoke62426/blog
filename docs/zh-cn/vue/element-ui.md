@@ -21,7 +21,7 @@ export default {
       return {
         value: '',
         event: {
-          type: 'input',
+          type: 'change',
           func: this.testFunc
         }
       }
@@ -38,7 +38,11 @@ export default {
 子组件
 ```html
 <template>
-    <el-input v-model="testObj.value" placeholder="" @[testObj.event.type]="innerFunc"></el-input>
+    <el-input
+        :value="testObj.value" 
+        @input="$emit('update:testObj', {...testObj, value: $event})"
+        @[testObj.event.type]="innerFunc"  
+    ></el-input>
 </template>
 
 <script>
