@@ -16,16 +16,21 @@
 import Test from './test.vue'
 export default {
   components: { Child },
-  computed: {
-    test() {
+  data() {
+    return {
+      test: {
       return {
-        value: '',
-        event: {
-          type: 'change',
-          func: this.testFunc
+          value: '',
+          event: {
+            type: 'change',
+            func: this.testFunc
+          }
         }
       }
     }
+  },
+  computed: {
+    
   },
   methods: {
     testFunc() {
