@@ -539,3 +539,40 @@ try{}catch() {} 和上面的最大不同在于 `专门用来捕获未知的系�
 
 还有一点需要注意
 ![](../../images/catch.png)
+
+### 前端axios处理文件流
+首先一定要在axios中配置
+```js
+responseType: "blob",
+```
+其次我的想法是根据响应头获取文件名称和文件后缀名，然后根据后缀名和blob的type对应表进行下载操作
+
+一下代码仅仅是测试
+
+```js
+const keyValue = {
+  '.xls': 'application/vnd.ms-excel',
+  '.xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  '.doc': 'application/msword',
+  '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  '.pdf': 'application/pdf'
+}
+userDownloadGoRequest(this.introduceId)
+.then(response => {
+
+  // const fileName = decodeURI(response.headers['content-disposition'].split(";")[1].split("filename=")[1])
+  // 获取文件后缀
+  let suffix = response.headers['content-disposition'].search(/[^\.]\w*$/)
+  console.log('response.headerscontent-disposition', response.headers['content-disposition']);
+  console.log('suffix', suffix);
+  return
+  let blob = new Blob([response.data], {type: keyValue[suffix]})
+  // 创建URL
+  let url = window.URL.createObjectURL(blob)
+  // 模拟点击 
+  let a = document.createElement('a')
+  a.download = '企业介绍'
+  a.href = url
+  a.click()
+})
+```
