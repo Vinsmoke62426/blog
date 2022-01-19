@@ -122,3 +122,72 @@ module.exports = {
 npm run build
 ```
 tips: 浏览器自动打开 http://127.0.0.1:8888，如果8888 端口被占用，则提示打包失败
+
+### 入口文件 index.html 中根据环境变量配置
+webpack 可以识别 `<%  %>` 这两个字符中的内容
+```html
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <% if (process.env.NODE_ENV === 'prodInLightSgcc' ) { %>
+      <link href="<%= htmlWebpackPlugin.files.publicPath %>static/loading/white.css" rel="stylesheet" />
+    <% } else {%>
+      <link href="/static/loading/default.css" rel="stylesheet" />
+    <% } %>
+  </head>
+```
+
+`htmlWebpackPlugin` 对象全部内容如下（默认的dev环境下）
+```json
+{
+    "files": {
+        "publicPath": "/",
+        "chunks": {
+            "chunk-vendors": {
+                "size": 7449741,
+                "entry": "/js/chunk-vendors.js",
+                "hash": "e9397322efe5df049dc7",
+                "css": []
+            },
+            "index": {
+                "size": 804484,
+                "entry": "/js/index.js",
+                "hash": "d8c1f8d611fe47521b09",
+                "css": []
+            }
+        },
+        "js": [
+            "/js/chunk-vendors.js",
+            "/js/index.js"
+        ],
+        "css": []
+    },
+    "options": {
+        "template": "D:\\eisp\\eisp-web\\node_modules\\_html-webpack-plugin@3.2.0@html-webpack-plugin\\lib\\loader.js!D:\\eisp\\eisp-web\\public\\index.html",
+        "filename": "index.html",
+        "hash": false,
+        "inject": true,
+        "compile": true,
+        "favicon": false,
+        "minify": false,
+        "cache": true,
+        "showErrors": true,
+        "chunks": [
+            "chunk-vendors",
+            "chunk-common",
+            "index"
+        ],
+        "excludeChunks": [],
+        "chunksSortMode": "auto",
+        "meta": {},
+        "title": "天津市能源供需互动服务平台",
+        "xhtml": false,
+        "cdn": {
+            "prefetch": [],
+            "css": [],
+            "js": []
+        }
+    }
+}
+```
