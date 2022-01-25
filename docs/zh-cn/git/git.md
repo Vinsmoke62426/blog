@@ -37,3 +37,5 @@ fork 别人的仓库到自己的仓库中，方便自己更改
 git worktree add <新路径> -b <新分支名>
 ```
 ![](../../images/worktree.png)
+
+[其他注意事项](https://www.cnblogs.com/jasongrass/p/11178079.html)
