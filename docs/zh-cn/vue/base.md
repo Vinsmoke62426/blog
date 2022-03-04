@@ -370,3 +370,12 @@ Object.assign(this.$data, this.$options.data())
 // 重组data中的某一个变量
 Object.assign(this.$data.form, this.$options.data().form)
 ```
+
+### vue打包发布版本后的防止缓存机制
+vue 每次打包后生成的js或者css在的名字都自动带上了一个随机数类似
+```
+chunk-6a4979c0.e887fde1.css
+```
+优点：防止更新后出现缓存
+
+缺点：单页面应用都是不利于seo的

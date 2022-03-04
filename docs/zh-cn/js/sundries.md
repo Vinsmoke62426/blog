@@ -184,6 +184,17 @@ const copy = _.cloneDeep(obj)
 ```
 [包括对象的深拷贝及其他详细内容](https://cloud.tencent.com/developer/article/1417051)
 
+### 监测数据类型
+四种方式各有优缺点
+#### typeof
+
+#### instanceof
+
+#### constructor
+
+#### Object.prototype.toString.call()
+
+
 ### 使你的网址在1分钟内提高1%
 ```js
 <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
