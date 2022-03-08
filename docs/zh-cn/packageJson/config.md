@@ -1,4 +1,7 @@
-### peerDependencies 并行依赖
+### package.json文件
+[官方中文文档](http://javascript.ruanyifeng.com/nodejs/packagejson.html)
+
+#### peerDependencies 并行依赖
 vue3 的 ui 组件 element-plus 中的 package.json 文件中这样写到
 ```json
 {
