@@ -33,6 +33,9 @@
 - git
     - [git相关](zh-cn/git/git.md)
 
+- packageJson
+    - [packageJson](zh-cn/packageJson/config.md)
+
 - React
     - [React相关](zh-cn/react/react.md)
 
@@ -44,6 +47,9 @@
 
 - vscode
     - [生产力](zh-cn/vscode/base.md)
+
+- 计算机网络
+    - [基础概念](zh-cn/network/base.md)
 
 - 中文技术文档的写作规范
     - [标题](zh-cn/documentStyle/title.md)
