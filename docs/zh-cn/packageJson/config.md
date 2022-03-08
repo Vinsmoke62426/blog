@@ -1,5 +1,5 @@
 ### peerDependencies 并行依赖
-vue3 的ui组件 element-plus 中这样写到
+vue3 的 ui 组件 element-plus 中的 package.json 文件中这样写到
 ```json
 {
     "peerDependencies": {
