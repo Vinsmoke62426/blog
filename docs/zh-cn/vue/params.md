@@ -30,9 +30,16 @@ vuecli3 的多环境打包 很简单，只需要两步
 2. 在项目中创建对应的 .env.xxx 的文件。
 ```
 //.env.prodInDark
-NODE_ENV = 'prodInLight'
+NODE_ENV = 'production'
+
+# 只是一个标识符
+VUE_APP_NODE_ENV = 'prodInLight'
 ```
+> [!Danger]
+> 注意：NODE_ENV 这个属性是给 node 用的，不能随意更改为标识符，想加标识符，需额外定义。如果是线上环境，NODE_ENV 统一都为 `production`.原因是 node 只能识别 NODE_ENV 为 `production` 时才在打包好的文件名中加上防止缓存的 `hash` 值
+
 tips: 内部如果要新写变量，一定要 VUE_APP_ 开头，建议变量名称也用大写（常量）
+
 > [!Danger]
 > 在配置 .env 文件的时候，发现开发环境下的 .env 文件只能写成 .env.development。写成 .env.dev 无效，获取到的 process.env 是默认的 development 的，这点要注意
 
