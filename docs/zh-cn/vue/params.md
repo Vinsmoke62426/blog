@@ -23,17 +23,17 @@ vuecli3 的多环境打包 很简单，只需要两步
 "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "buildInDark": "vue-cli-service build --mode buildInDark",
-    "buildInLight": "vue-cli-service build --mode buildInLight"
+    "buildOne": "vue-cli-service build --mode buildOne",
+    "buildTwo": "vue-cli-service build --mode buildTwo"
 }
 ```
 2. 在项目中创建对应的 .env.xxx 的文件。
 ```
-//.env.prodInDark
+//.env.prodOne
 NODE_ENV = 'production'
 
 # 只是一个标识符
-VUE_APP_NODE_ENV = 'prodInLight'
+VUE_APP_NODE_ENV = 'prodOne'
 ```
 > [!Danger]
 > 注意：NODE_ENV 这个属性是给 node 用的，不能随意更改为标识符，想加标识符，需额外定义。如果是线上环境，NODE_ENV 统一都为 `production`.原因是 node 只能识别 NODE_ENV 为 `production` 时才在打包好的文件名中加上防止缓存的 `hash` 值
