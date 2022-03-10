@@ -6,7 +6,7 @@
 ```js
 // vueconfig.js
 module.exports = {
-    publicPath: '/proxy-tj/tj-xqxy-out/',
+    publicPath: '/proxy/xqxy-out/',
 }
 ```
 2. 路由加前缀
@@ -14,7 +14,7 @@ module.exports = {
 // router.js
 const router = new Router({
   mode: "history",
-  base: "/proxy-tj/tj-xqxy-out/",
+  base: "/proxy/xqxy-out/",
 })
 ```
 3. 接口加前缀
@@ -22,7 +22,7 @@ const router = new Router({
 // request.js
 const service = axios.create({
   timeout: 5000,
-  baseURL: '/proxy-tj/tj-xqxy-out/',
+  baseURL: '/proxy/xqxy-out/',
 });
 ```
 ## 河北项目左侧菜单有时有有时没有

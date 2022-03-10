@@ -130,7 +130,7 @@ webpack 可以识别 `<%  %>` 这两个字符中的内容
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <% if (process.env.NODE_ENV === 'prodInLightSgcc' ) { %>
+    <% if (process.env.VUE_APP_PRO_ENV === 'prodOne' ) { %>
       <link href="<%= htmlWebpackPlugin.files.publicPath %>static/loading/white.css" rel="stylesheet" />
     <% } else {%>
       <link href="/static/loading/default.css" rel="stylesheet" />
