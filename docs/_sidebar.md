@@ -42,8 +42,9 @@
 - Ts
     - [初识typescipt](zh-cn/react/hello.md)
 
-- 面试
-    - [面试](zh-cn/offer/offer.md)
+- 面试以及面经
+    - [面试](zh-cn/offer/interview.md)
+    - [面经](zh-cn/offer/offer.md)
 
 - vscode
     - [生产力](zh-cn/vscode/base.md)
