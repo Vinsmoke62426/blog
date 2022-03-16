@@ -203,3 +203,13 @@ console.log(style.primaryColor)
 设计方面：切一张长图片，将每一步动画按顺序从上到下排列整齐
 
 开发方面：css 用 `background-position-y`上下位移
+
+### css '>'符号
+`'>'` 子代选择器
+```css
+/* 这个表示a下面的所有b */
+.a .b {}
+
+/* 这个表示a下面的第一层级b */
+.a>.b {}
+```
