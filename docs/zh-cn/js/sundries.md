@@ -587,3 +587,8 @@ userDownloadGoRequest(this.introduceId)
   a.click()
 })
 ```
+
+### html 字符串转 dom
+```js
+document.createRange().createContextualFragment(domSting)
+```

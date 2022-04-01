@@ -65,6 +65,29 @@ blob 的 三个方法 [https://developer.mozilla.org/zh-CN/docs/Web/API/Blob](ht
 
 var text = await (new Response(blob)).text() 
 
+### 文件流转blob对象下载
+之前做svg的dom直接前端下载下来的操作时，传入的 data 是 `dom字符串` 才行
+```js
+// 文件流转blob对象下载
+downloadFile(data, type, fileName) {
+    let blob = new Blob([data], {type: `image/svg+xml;charset=utf-8`});
+    // 获取heads中的filename文件名
+    let downloadElement = document.createElement('a');
+    // 创建下载的链接
+    let href = window.URL.createObjectURL(blob);
+    downloadElement.href = href;
+    // 下载后文件名
+    downloadElement.download = fileName;
+    document.body.appendChild(downloadElement);
+    // 点击下载
+    downloadElement.click();
+    // 下载完成移除元素
+    document.body.removeChild(downloadElement);
+    // 释放掉blob对象
+    window.URL.revokeObjectURL(href);
+},
+```
+
 ### axios timeout
 
 timeout 没有默认时间，默认是 0
