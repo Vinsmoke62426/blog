@@ -592,3 +592,35 @@ userDownloadGoRequest(this.introduceId)
 ```js
 document.createRange().createContextualFragment(domSting)
 ```
+
+### 位移运算 x >>> 0
+`x >>> 0`本质上就是保证x有意义（为数字类型），且为正整数
+
+在有效的数组范围内（0 ～ 0xFFFFFFFF）
+
+且在无意义的情况下缺省值为0
+
+[详细的内部原理可以看这里](https://segmentfault.com/a/1190000014613703?utm_source=tag-newest)
+
+```js
+'' >>> 0
+// 0
+
+'undefined' >>> 0
+// 0
+
+undefined >>> 0
+// 0
+
+null >>> 0
+// 0
+
+1.11 >>> 0
+// 1
+
+122 >>> 0
+// 122
+
+0.1 >>> 0
+// 0
+```
