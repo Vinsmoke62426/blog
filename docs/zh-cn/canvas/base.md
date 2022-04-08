@@ -16,3 +16,8 @@ image.onload = () => {
 类似于 `'@/asset/....xxx.png'`, `'../../...xx.png'`
 
 所以最后只好将图片放在了static中才解决😒
+
+> [!TIP]
+> 最后找到解决方案 src 用 require 引入地址，可以用相对路径
+
+原因：这里设计到 webpack 的对于图片的编码
