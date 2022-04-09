@@ -16,14 +16,14 @@
 export default {
     loadSuccess() {
         // 拿canvas实例
-        let c = document.getElementById("canvas");
+        let canvas = document.getElementById("canvas");
         // 画笔
-        let ctx = c.getContext("2d");
+        let ctx = canvas.getContext("2d");
         const elImage = document.querySelector('.main-image')
 
         //! 获取图片的大小，设置画布的大小与图片大小相同,这步非常重要
-        c.width = elImage.clientWidth
-        c.height = elImage.clientHeight
+        canvas.width = elImage.clientWidth
+        canvas.height = elImage.clientHeight
 
         // 测试手绘图形
         ctx.lineWidth = 2;
