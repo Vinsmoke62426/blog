@@ -13,6 +13,7 @@
 - Js
     - [杂项](zh-cn/js/sundries.md)
     - [js代码规范](zh-cn/js/rules.md)
+    - [js模块化](zh-cn/js/module.md)
 
 - Request
     - [请求相关](zh-cn/request/request.md)
