@@ -30,4 +30,47 @@ publicPath: IS_PROD ? './' : '/',
 解决方法：随便加一个空的 .ts 文件 或者改一个 .ts 文件。(sb报错)
 
 ## 项目中切换不同角色进行登录，进去显示的路由还是上一个角色的
-原因：
+之前以为是动态路由写的有问题，
+
+但是如果我退出登录，在登录页面刷新一下之后，再登另一个角色的话
+
+又不会出现这种情况
+
+所以`排除动态路由的问题`
+
+原因：罪魁祸首
+```js
+// AppMain.vue
+<router-view :key="key" class="router-class"/>
+```
+由于我统一任何角色的第一个路由在地址栏为 `'/'`,然后重定向它实际的路由
+
+这会导致不同角色的`router-view`的`key`相同，都是`'/'`,存在缓存
+
+解决方案：
+
+1. 通过抛出重置路由实例的方法，在退出登录的时候调用
+
+这种方式比较万金油，专门用来处理重置路由实例的场景
+```js
+// 创建路由
+const createRouter = () => 
+  new Router({
+    mode: "history",
+    base: baseURL,
+    routes: constantRouterMap,
+    scrollBehavior: () => ({ y: 0 })
+  });
+
+const router = createRouter()
+
+// 抛出 重置路由实例的方法
+export function resetRouter() {
+  const newRouter = createRouter()
+  router.matcher = newRouter.matcher // reset router
+}
+```
+
+2. 不统一地址栏，直接跳转原始路由地址
+
+这种方式也可以
