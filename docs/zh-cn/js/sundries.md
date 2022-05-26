@@ -587,6 +587,15 @@ userDownloadGoRequest(this.introduceId)
   a.click()
 })
 ```
+### 文件转base64
+以 el-upload 上传的图片为例
+```js
+const reader = new FileReader();
+reader.readAsDataURL(file.raw);
+reader.onload = function(e){
+  console.log(e)
+}
+```
 
 ### html 字符串转 dom
 ```js
