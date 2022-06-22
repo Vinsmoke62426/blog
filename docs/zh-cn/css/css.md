@@ -162,21 +162,6 @@ link 是异步的， GUI 渲染页面的时候遇到 link 会开辟新的 HTTP �
     position: absolute;
 }
 ```
-## js 中使用 sass 变量
-```js
-/* config.scss */
-$primary-color: #f40;
-
-:export {
-  primaryColor: $primary-color;
-}
-
-/* app.js */
-import style from "config.scss";
-// 会输出 #F40
-console.log(style.primaryColor)
-```
-
 ## div超出宽度自动换行
 遇到了超出div不换行的div，很奇怪，之前都没遇到过，只能用下面这种方式强行换行了
 
@@ -228,8 +213,24 @@ div以图片为背景，按照div的大小自动变化
 
 [看官方的比较详细](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-size)
 
-## sass-loader 配置 js 文件
-常规的 sass 配置全局 变量一般是下面这种方式
+## sass 全局变量
+### js 中使用 sass 变量
+```js
+/* config.scss */
+$primary-color: #f40;
+
+:export {
+  primaryColor: $primary-color;
+}
+
+/* app.js */
+import style from "config.scss";
+// 会输出 #F40
+console.log(style.primaryColor)
+```
+
+### sass 中使用 js 变量（常量）
+常规的 sass 配置全局 变量一般是下面这种方式，在 sass-loader 中配置
 ```js
 // vueconfig.js
 module.exports = {
@@ -246,7 +247,7 @@ module.exports = {
   }
 }
 ```
-但是如果要在这里配置自定义的 js 数组该怎么处理
+但是如果要在这里配置自定义的 js 数组，然后使用里面的变量该怎么处理
 
 类似这样的
 ```js
@@ -258,7 +259,7 @@ module.exports = {
 
 网上的教程都是针对 vue-cli2 的，没看到 vue-cli3+ 的
 
-经过尝试后，发现这样就行
+经过尝试后，发现这样就行,直接在后面加扩展运算符，然后遍历处理
 ```js
 // vueconfig.js
 module.exports = {
@@ -286,3 +287,22 @@ module.exports = {
 现在就直接可以在 sass 中使用你自定义的 js 变量了
 
 但是和 sass 的全局变量一样，这个的变量也是`静态的`
+
+### 动态的 sass 全局变量
+一个简单的方法，先配置一个 sass 可以接收的变量
+```js
+document.getElementsByTagName('body')[0].style.setProperty('--ratio100vh', window.devicePixelRatio * 100 + 'vh');
+
+```
+然后在专门放 sass 全局变量的地方加上这个值
+```css
+$ratio100vh: var(--ratio100vh);
+```
+
+然后就可以直接全局使用了
+
+如果想要修改这个值，让它变成动态的，直接再重新配置就行
+
+这个配置方式有两个注意的点
+- 变量名称前面一定要带 `-`
+- 变量名后面的值一定要是 css 完整的内容，类似与 100px, 100vh， 如果定义 100，然后在使用全局变量的地方拼上px，vh的话是不行的
