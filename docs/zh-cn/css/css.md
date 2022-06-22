@@ -266,18 +266,18 @@ module.exports = {
   css: {
     sourceMap: true, 
     loaderOptions: {
-      sass: {
-        //公共的scss变量和混入(可加多个，用 ；号分隔)
-        prependData: `@import "./src/styles/variables.scss"; 
-                    @import "./src/styles/mixins.scss";
-                    @import "./src/styles/primaryChange.scss";
-                    ${
-                      Object.keys(styleVariables)
-                      .map(k => `\$${k}: ${styleVariables[k]};`)
-                      .join('\n')
-                    }
-                    `,
-      }
+        sass: {
+            //公共的scss变量和混入(可加多个，用 ；号分隔)
+            prependData: `@import "./src/styles/variables.scss"; 
+                        @import "./src/styles/mixins.scss";
+                        @import "./src/styles/primaryChange.scss";
+                        ${
+                        Object.keys(styleVariables)
+                        .map(k => `\$${k}: ${styleVariables[k]};`)
+                        .join('\n')
+                        }
+                        `,
+        }
     }
   }
 }
