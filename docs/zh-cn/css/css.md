@@ -227,3 +227,62 @@ div以图片为背景，按照div的大小自动变化
 类似于 `原比例显示`，`原比例平铺`，`百分比平铺`，`像素平铺`
 
 [看官方的比较详细](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-size)
+
+## sass-loader 配置 js 文件
+常规的 sass 配置全局 变量一般是下面这种方式
+```js
+// vueconfig.js
+module.exports = {
+  css: {
+    sourceMap: true, 
+    loaderOptions: {
+      sass: {
+        //公共的scss变量和混入(可加多个，用 ；号分隔)
+        prependData: `@import "./src/styles/variables.scss"; 
+                    @import "./src/styles/mixins.scss";
+                    @import "./src/styles/primaryChange.scss";`,
+      }
+    }
+  }
+}
+```
+但是如果要在这里配置自定义的 js 数组该怎么处理
+
+类似这样的
+```js
+// styleVariables.js
+module.exports = {
+    customColor: '#000000'
+}
+```
+
+网上的教程都是针对 vue-cli2 的，没看到 vue-cli3+ 的
+
+经过尝试后，发现这样就行
+```js
+// vueconfig.js
+module.exports = {
+  css: {
+    sourceMap: true, 
+    loaderOptions: {
+      sass: {
+        //公共的scss变量和混入(可加多个，用 ；号分隔)
+        prependData: `@import "./src/styles/variables.scss"; 
+                    @import "./src/styles/mixins.scss";
+                    @import "./src/styles/primaryChange.scss";
+                    ${
+                      Object.keys(styleVariables)
+                      .map(k => `\$${k}: ${styleVariables[k]};`)
+                      .join('\n')
+                    }
+                    `,
+      }
+    }
+  }
+}
+```
+我们为所有变量前面加上了 `$` 符号，使用时格式为 `$customColor`
+
+现在就直接可以在 sass 中使用你自定义的 js 变量了
+
+但是和 sass 的全局变量一样，这个的变量也是`静态的`
