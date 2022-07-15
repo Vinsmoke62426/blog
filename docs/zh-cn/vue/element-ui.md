@@ -142,3 +142,21 @@ export default {
 }
 </script>
 ```
+
+## jsx el-form
+常规写法会报错
+```
+Invalid handler for event "input": got undefined
+```
+重点在于 el-form 的 model 要特殊写法
+
+用 props 传进去就好了
+```js
+<el-form
+  props={{
+    model: this.elProps
+  }}>
+  ...
+</el-form>
+```
+
