@@ -159,4 +159,52 @@ Invalid handler for event "input": got undefined
   ...
 </el-form>
 ```
+下面是比较经典也是比较复杂的 jsx 处理 el-from 同时 解决 bug 的完整事例
+```js
+<div class="file_image_box">
+    <img src={this.getIconByFileNameSuffix(row)}/>
+    <div class="content">
+        <el-form 
+            props={{ model: rowCopy}} 
+            rules={rules}
+            nativeOnsubmit={(event) => {
+                // jsx 阻止表单默认的 submit 事件触发
+                // 来解决 当 el-form 中只有一个 el-input 时，enter 会直接刷新页面的 bug  
+                event.preventDefault() 
+            }}
+        >
+            <el-form-item label="" prop="name">
+                <el-input 
+                    size="mini" 
+                    value={rowCopy.name} 
+                    onInput={(value) => { rowCopy.name = value }}
+                    nativeOnkeyup={(event) => {
+                        // 用判断 代替 .enter 事件修饰符
+                        if(event.keyCode === 13) {
+                            this.confirm(rowCopy, row)
+                        } 
+                    }} 
+                    placeholder=""
+                    style={`width: ${document.querySelector('.file_image_box').clientWidth - 80}px`}
+                >
+                    <el-button 
+                        size="mini" 
+                        slot="suffix" 
+                        class="input-inner-btn-cancel el-icon-circle-close" 
+                        type="text"
+                        onClick={() => { this.cancel() }}
+                    ></el-button>
+                    <el-button 
+                        size="mini" 
+                        slot="suffix" 
+                        class="input-inner-btn-confirm el-icon-circle-check" 
+                        type="text"
+                        onClick={() => { this.confirm(rowCopy, row) }}
+                    ></el-button>
+                </el-input>
+            </el-form-item>
+        </el-form>
+    </div>
+</div>
+```
 
