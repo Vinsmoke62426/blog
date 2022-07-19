@@ -208,3 +208,6 @@ Invalid handler for event "input": got undefined
 </div>
 ```
 
+## el-upload 的几种使用情况
+[自动上传与修改默认的上传方式](https://www.jianshu.com/p/b141b968723c)
+
