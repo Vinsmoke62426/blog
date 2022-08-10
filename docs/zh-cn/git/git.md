@@ -39,3 +39,12 @@ git worktree add <新路径> -b <新分支名>
 ![](../../images/worktree.png)
 
 [其他注意事项](https://www.cnblogs.com/jasongrass/p/11178079.html)
+
+
+### git 文件名大小写问题
+git默认配置是忽略大小写的，这可能会导致在多人开发的时候出现奇怪的问题
+
+解决方法: 修改默认配置
+```
+git config core.ignorecase false
+```
