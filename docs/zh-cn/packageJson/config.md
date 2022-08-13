@@ -23,6 +23,9 @@ vue3 的 ui 组件 element-plus 中的 package.json 文件中这样写到
 ```
 上面代码指定，安装 `chai-as-promised` 模块时，主程序 `chai` 必须一起安装，而且 `chai` 的版本必须是 `1.x` 。如果你的项目指定的依赖是 `chai` 的 2.0 版本，就会报错。
 
+### 
+![](../../images/package-lock.png)
+
 ### ^和~的区别
 
 - `^` 它将当前库的版本更新到第一个数字（major version)中的最新版本，比如：`^12.2.2`，库会匹配更新到`12.X.X`的最新版本，但是不会更新到`13.X.X`版本
