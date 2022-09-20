@@ -12,3 +12,5 @@
 - ctrl+shift+p
 - Format Document
 - 找到你想要格式化的文件类型 回车
+
+tips: 格式化 nginx 用 `nginx-format` 扩展
