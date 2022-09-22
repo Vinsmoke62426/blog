@@ -45,7 +45,8 @@
     - [初识typescipt](zh-cn/react/hello.md)
 
 - docker
-    - [基本操作](zh-cn/docker/base.md)
+    - [容器](zh-cn/docker/containers.md)
+    - [其他](zh-cn/docker/other.md)
 
 - 面试以及面经
     - [面试](zh-cn/offer/interview.md)
