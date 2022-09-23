@@ -35,8 +35,9 @@
 - git
     - [git相关](zh-cn/git/git.md)
 
-- packageJson
-    - [packageJson](zh-cn/packageJson/config.md)
+- package
+    - [packageJson](zh-cn/package/packageJson.md)
+    - [day.js](zh-cn/package/dayjs.md)
 
 - React
     - [React相关](zh-cn/react/react.md)
