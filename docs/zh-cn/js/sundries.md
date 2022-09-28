@@ -367,11 +367,21 @@ const Person = () => {}, 则new Person(...)
 
 本身 dropdown 中的下拉选项的点击事件是用它自带的 command 的，这个在 jsx 中不好操作，根本触发不了事件
 
-这个时候需要 用到 `.native`，为自定义组件添加原生事件(阻止事件冒泡)，在 jsx 中要这样写：
+这个时候需要 用到 `.native`，`为自定义组件添加原生事件`，在 jsx 中要这样写：
 
 ```js
-<el nativeOnClick={this.nativeOnClickHandler} />
+<el-dropdown nativeOnClick={this.nativeOnClickHandler} />
 ```
+> [!TIP]
+> native修饰符不是阻止事件冒泡，而是让父组件接收到原生事件，例如 `click`，`blur` ，`input`
+> 
+> native修饰符只能用在组件上，不能用在原生标签上
+> 
+> 阻止事件冒泡用 @click.stop="" jsx中用 event.stopPropagation()
+> 
+> 阻止默认事件用 @click.prevent="" jsx中用 event.preventDefault()
+>
+> 以上三个最常用的事件修饰符要分清
 
 ### JSX $notify message
 ```js
