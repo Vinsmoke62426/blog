@@ -25,6 +25,7 @@
     - [小记](zh-cn/project/project.md)
 
 - vue-next
+    - [与vue2的差异](zh-cn/vue-next/differences.md)
     - [基础](zh-cn/vue-next/base.md)
 - nodeJs
     - [nodeJs](zh-cn/nodeJs/nodeJs.md)
