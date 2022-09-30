@@ -1,4 +1,4 @@
-### Promise.all([])
+## Promise.all([])
 ```js
 数组里面循环请求，直接 return 这个请求，不需要 await
 
@@ -27,7 +27,7 @@ getSearchfile(params).then(res => {
 })
 ```
 
-### 用Prommise将同步变异步
+## 用Prommise将同步变异步
 ```js
 function createAsyncTask(syncTask){
     return Promise.resolve(syncTask).then(syncTask => syncTask())
@@ -43,7 +43,7 @@ createAsyncTask(() =>{
 console.log('我是同步任务')   //最先输出
 ```
 
-### blob
+## blob
 
 英文 Binary large Object 二进制大对象
 
@@ -65,7 +65,7 @@ blob 的 三个方法 [https://developer.mozilla.org/zh-CN/docs/Web/API/Blob](ht
 
 var text = await (new Response(blob)).text() 
 
-### 文件流转blob对象下载
+## 文件流转blob对象下载
 之前做svg的dom直接前端下载下来的操作时，传入的 data 是 `dom字符串` 才行
 ```js
 // 文件流转blob对象下载
@@ -88,11 +88,11 @@ downloadFile(data, type, fileName) {
 },
 ```
 
-### axios timeout
+## axios timeout
 
 timeout 没有默认时间，默认是 0
 
-### windows查看端口并杀死进程
+## windows查看端口并杀死进程
 
 搜索端口，并通过 id 杀死
 ```
@@ -100,7 +100,7 @@ netstat -aon|findstr "8105"
 taskkill /f /pid 18832
 ```
 
-### 上网的四个条件
+## 上网的四个条件
 
 - ip IP地址
 
@@ -110,13 +110,13 @@ taskkill /f /pid 18832
 
 - 网关 解析ip地址 获取 mac地址
 
-### 网卡
+## 网卡
 
 一个机子有两个网卡，一个是自己自带的，一个是插上去的无限网卡，
 
 一个机子还可以有多个网卡，类似于服务器
 
-### 掘金快速抽奖
+## 掘金快速抽奖
 ```js
 var ajax = new XMLHttpRequest();
 ajax.open('post','https://api.juejin.cn/growth_api/v1/lottery/draw',true);
@@ -130,3 +130,8 @@ ajax.onreadystatechange = function (){
     }
 }
 ```
+
+## mockjs 会导致 axios 请求失败
+mockjs 和 axios 同时存在的情况下，mockjs 会修改 axios 的 `responseType`
+
+导致在上传文件和下载文件的时候 axios 直接报错，走响应拦截的错误拦截器
