@@ -649,3 +649,6 @@ null >>> 0
 ```js
 [...new Set(arr)]
 ```
+
+### 位移运算符 >>, >>>
+[这里讲的就挺详细的](http://c.biancheng.net/view/5471.html)
