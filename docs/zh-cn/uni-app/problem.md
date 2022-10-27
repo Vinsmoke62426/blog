@@ -1,5 +1,5 @@
 # uni-app 初识踩坑
-## 全平台以及编译器本省
+## 全平台以及编译器本身
 ### 开发工具选型
 - 为了不必要的麻烦，使用 uni-app 自己研发的 uni-ui 吧。本来想用 vant-weapp 的，但是这个组件库没有表单验证
 
@@ -9,6 +9,8 @@
 
 ### 常见问题
 - 涉及到的所有 window.xxx 的调用，最好使用 uni-app 自带的 api，如 window.sessionStorage 用 uni.getStorageSync 代替
+
+- npm install 和 cnpm install 下载下来的东西不一样，cnpm 要多很多。这会让 pages.json 中的 easycom 配置的自定义组件路径不对，最终导致报错没有找到组件
 
 ## 微信小程序
 > [!Danger]
@@ -23,6 +25,9 @@
 - 真机调试 似乎无法预览 代理后的域名，比如 `my.com, eureka`，最终是直接写的ip地址
 
 - 真机调试 勾选 `局域网调试`
+
+### 常见问题
+- 自定义顶部导航栏被刘海挡住的问题[官方有比较完整的介绍](https://uniapp.dcloud.net.cn/collocation/pages.html#customnav) 简单的讲就是配置 css 变量 `var(--status-bar-height)`。[自定义导航栏的配置方式](https://blog.csdn.net/m0_55258023/article/details/125780939)
 
 
 ## app
