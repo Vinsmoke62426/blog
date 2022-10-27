@@ -24,6 +24,9 @@
 - 项目相关
     - [小记](zh-cn/project/project.md)
 
+- uni-app
+    - [踩坑](zh-cn/uni-app/problem.md)
+
 - vue-next
     - [与vue2的差异](zh-cn/vue-next/differences.md)
     - [基础](zh-cn/vue-next/base.md)
@@ -32,6 +35,7 @@
 
 - css
     - [css综合](zh-cn/css/css.md)
+    - [像素](zh-cn/css/px.md)
 
 - git
     - [git相关](zh-cn/git/git.md)
