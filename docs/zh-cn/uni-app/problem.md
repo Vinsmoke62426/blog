@@ -28,6 +28,8 @@
 
 - 真机调试 勾选 `局域网调试`
 
+- 上传发布 测试 AppID 无法发布，需要申请正式的
+
 ### 常见问题
 - 自定义顶部导航栏被刘海挡住的问题[官方有比较完整的介绍](https://uniapp.dcloud.net.cn/collocation/pages.html#customnav) 简单的讲就是配置 css 变量 `var(--status-bar-height)`。[自定义导航栏的配置方式](https://blog.csdn.net/m0_55258023/article/details/125780939)
 
