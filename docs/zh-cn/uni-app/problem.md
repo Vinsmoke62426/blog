@@ -5,7 +5,7 @@
 
 - 调用接口也用自带的 uni-request，再手动封装成 axios 的形式，axios 内部使用了 formData 会报错，uni-app想使用 axios 必须要额外进行配置，比较麻烦。uni-request 没有 params 参数，这点要注意
 
-- css 单位我认为绝大部分情况没必要使用 rpx，px足够了 [这里对rpx的讲解比较详细](https://www.zhuige.com/index/news/detail/id/629.html)
+- css 单位我暂时认为绝大部分情况没必要使用 rpx，px足够了 [这里对rpx的讲解比较详细](https://www.zhuige.com/index/news/detail/id/629.html)
 
 ### 常见问题
 - 涉及到的所有 window.xxx 的调用，最好使用 uni-app 自带的 api，如 window.sessionStorage 用 uni.getStorageSync 代替
