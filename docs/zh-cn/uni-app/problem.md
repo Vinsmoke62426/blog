@@ -14,7 +14,7 @@
 
 - 条件编译 如果写在 json 文件中， 记得一定要将前一个对象后面的`逗号`包含进去，否则会报错，json 文件的格式要求太严格了
 
-- 动态 tabbar [除了 H5 端，非必要不做动态 tabbar](https://uniapp.dcloud.net.cn/collocation/pages.html#custom-tab-bar)， 可以加一个`我的`tabbar，将不同用户的特殊操作用单元格的形式做在里面
+- 动态 tabbar [做是可以做](https://hhyang.cn/v2/) 但是 [除了 H5 端，非必要不做动态 tabbar](https://uniapp.dcloud.net.cn/collocation/pages.html#custom-tab-bar)， 可以加一个`我的`tabbar，将不同用户的特殊操作用单元格的形式做在里面
 
 ## 微信小程序
 > [!Danger]
