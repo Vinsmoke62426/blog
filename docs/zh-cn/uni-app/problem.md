@@ -14,7 +14,7 @@
 
 - 条件编译 如果写在 json 文件中， 记得一定要将前一个对象后面的`逗号`包含进去，否则会报错，json 文件的格式要求太严格了
 
-- 动态 tabbar [做是可以做](https://hhyang.cn/v2/) 但是 [除了 H5 端，非必要不做动态 tabbar](https://uniapp.dcloud.net.cn/collocation/pages.html#custom-tab-bar)， 可以加一个`我的`tabbar，将不同用户的特殊操作用单元格的形式做在里面
+- 动态 tabbar [做是可以做，这个插件写的很详细](https://hhyang.cn/v2/) 但是 [除了 H5 端，非必要不做动态 tabbar](https://uniapp.dcloud.net.cn/collocation/pages.html#custom-tab-bar)， 可以加一个`我的`tabbar，将不同用户的特殊操作用单元格的形式做在里面
 
 ## 微信小程序
 > [!Danger]
@@ -38,6 +38,8 @@
 - 自定义顶部导航栏被刘海挡住的问题[官方有比较完整的介绍](https://uniapp.dcloud.net.cn/collocation/pages.html#customnav) 简单的讲就是配置 css 变量 `var(--status-bar-height)`。[自定义导航栏的配置方式](https://blog.csdn.net/m0_55258023/article/details/125780939)
 
 - 开发阶段不需要设置 `request合法域名`，这个是发布上线后的后端地址
+
+- 微信小程序的 tabbar 的图标大小无法设置，是由 uniapp 根据图标尺寸来自适应的，大小太小图片会模糊，[可以按照官方建议的尺寸让设计人员设计](https://uniapp.dcloud.net.cn/collocation/pages.html#tabbar)
 
 ## app
 
