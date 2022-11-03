@@ -15,6 +15,9 @@
     - [js代码规范](zh-cn/js/rules.md)
     - [js模块化](zh-cn/js/module.md)
 
+- 代码格式化
+    - [如何配置代码格式化](zh-cn/formatter/base.md)
+
 - Request
     - [请求相关](zh-cn/request/request.md)
 
