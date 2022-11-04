@@ -70,6 +70,13 @@ test(1,2,3);
 //[1,2,3]
 ```
 
+### window、document、navigator、location
+可能有些人以为 js 等于浏览器里的js
+
+其实 js 是 ECMAScript 组织管理的，浏览器中的 js 是 w3c 组织基于 js 规范补充了 window、document、navigator、location 等专用对象。
+
+所以这会导致在uniapp 中无法使用这些浏览器专属的对象
+
 ### 将扁平数组转化为树状结构
 ```js
 const getTree = arr => {
