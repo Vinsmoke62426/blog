@@ -8,6 +8,8 @@
 - css 单位我暂时认为绝大部分情况没必要使用 rpx，px足够了 [这里对rpx的讲解比较详细](https://www.zhuige.com/index/news/detail/id/629.html)
 
 ### 常见问题
+- [uniapp的论坛有人总结过相关的所有内容](https://ask.dcloud.net.cn/article/35657)
+
 - 涉及到的所有 window.xxx 的调用，最好使用 uni-app 自带的 api，如 window.sessionStorage 用 uni.getStorageSync 代替
 
 - npm install 和 cnpm install 下载下来的东西不一样，cnpm 要多很多。这会让 pages.json 中的 easycom 配置的自定义组件路径不对，最终导致报错没有找到组件
@@ -15,6 +17,8 @@
 - 条件编译 如果写在 json 文件中， 记得一定要将前一个对象后面的`逗号`包含进去，否则会报错，json 文件的格式要求太严格了
 
 - 动态 tabbar [做是可以做，这个插件写的很详细](https://hhyang.cn/v2/) 但是 [除了 H5 端，非必要不做动态 tabbar](https://uniapp.dcloud.net.cn/collocation/pages.html#custom-tab-bar)， 可以加一个`我的`tabbar，将不同用户的特殊操作用单元格的形式做在里面
+
+- uniapp 有自己的生命周期
 
 ## 微信小程序
 > [!Danger]
