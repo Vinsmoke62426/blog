@@ -1,16 +1,12 @@
 # axios
 ## 关于传参
-### 各种不同的传参形式
-- 不做任何处理的 data 参数
-
+### 不做任何处理的 data 参数
 ![Image text](./../../images/request/axios1.png)
 
--  加了 headers: { "Content-Type": "application/x-www-form-urlencoded" } 的 data 参数
-
+### 加了 headers: { "Content-Type": "application/x-www-form-urlencoded" } 的 data 参数
 ![Image text](./../../images/request/axios2.png)
 
-- 用了 qs.stringify(data) 处理后的 data 参数
-
+### 用了 qs.stringify(data) 处理后的 data 参数
 ![Image text](./../../images/request/axios3.png)
 
 qs.stringify() 处理相当于将 对象格式转化为了表单形式，去掉了外部的括号，然后会被 axios 自动识别为
