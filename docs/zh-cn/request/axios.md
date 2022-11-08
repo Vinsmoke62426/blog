@@ -6,6 +6,8 @@
 ### 加了 headers: { "Content-Type": "application/x-www-form-urlencoded" } 的 data 参数
 ![Image text](./../../images/request/axios2.png)
 
+将整个 JSON 作为表单的第一项的`键名`来传递，一定要注意到最后面的`冒号`
+
 ### 用了 qs.stringify(data) 处理后的 data 参数
 ![Image text](./../../images/request/axios3.png)
 
