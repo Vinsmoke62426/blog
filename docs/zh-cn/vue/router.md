@@ -1,8 +1,4 @@
 # 路由
-## router-view 和 component:is
-功能相同,适用不同业务场景
-
-
 ## 路由跳转传参
 路由传参分为两种形式 `query` 和 `params`
 ### 两者区别
@@ -30,3 +26,8 @@ this.$router.replace({
 })
 ```
 
+
+
+
+## router-view 和 component:is
+功能相同,适用不同业务场景
