@@ -18,7 +18,9 @@
 
 - 动态 tabbar [做是可以做，这个插件写的很详细](https://hhyang.cn/v2/) 但是 [除了 H5 端，非必要不做动态 tabbar](https://uniapp.dcloud.net.cn/collocation/pages.html#custom-tab-bar)， 可以加一个`我的`tabbar，将不同用户的特殊操作用单元格的形式做在里面
 
-- uniapp 有自己的生命周期
+- uniapp 有自己的页面生命周期
+
+- uniapp 内置了 `native.js`，这让开发者通过 plus 可以调用几乎所有系统的 API，包括iOS， Android，[可以看一下uniapp官方的描述](https://uniapp.dcloud.net.cn/tutorial/native-js.html#%E6%A6%82%E8%BF%B0)
 
 ## 微信小程序
 > [!Danger]
