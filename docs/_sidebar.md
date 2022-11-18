@@ -29,6 +29,7 @@
 
 - uni-app
     - [踩坑](zh-cn/uni-app/problem.md)
+    - [5+app](zh-cn/uni-app/5+app.md)
 
 - vue-next
     - [与vue2的差异](zh-cn/vue-next/differences.md)
@@ -44,6 +45,7 @@
     - [git相关](zh-cn/git/git.md)
 
 - package
+    - [pnpm](zh-cn/package/pnpm.md) 
     - [packageJson](zh-cn/package/packageJson.md)
     - [day.js](zh-cn/package/dayjs.md)
 

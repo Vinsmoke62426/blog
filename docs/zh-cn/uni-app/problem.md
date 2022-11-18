@@ -20,7 +20,7 @@
 
 - uniapp 有自己的页面生命周期
 
-- uniapp 内置了 `native.js`，这让开发者通过 plus 可以调用几乎所有系统的 API，包括iOS， Android，[可以看一下uniapp官方的描述](https://uniapp.dcloud.net.cn/tutorial/native-js.html#%E6%A6%82%E8%BF%B0)
+- **uniapp 中可以使用 `native.js`，同时对其进行了一定的优化，这让开发者通过 plus 可以调用几乎所有系统的 API，包括iOS， Android，[可以看一下uniapp官方的描述，讲的很详细](https://uniapp.dcloud.net.cn/tutorial/native-js.html#%E6%A6%82%E8%BF%B0)**
 
 ## 微信小程序
 > [!Danger]
