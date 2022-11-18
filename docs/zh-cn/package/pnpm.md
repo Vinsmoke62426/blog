@@ -21,3 +21,7 @@ pnpm 在默认配置下，你需要把 webpack 声明在项目的 package.json -
 我们看似利用依赖之间内部使用了相同的依赖，而直接引入 webpack 或者 qs 之类的依赖，`这在 pnpm 的规范下都是不允许的`
 
 解决办法：老老实实的在 package.json 中声明好 qs
+
+值得一提的是，网上的很多文章会让你用 `pnpm install --shamefully-hoist` 这个命令去解决问题
+
+问题可能会被解决，但是它会将你的 node_modules 目录结构变得和 npm yarn 一样，那样将失去使用 pnpm 的意义，官方也不推荐
