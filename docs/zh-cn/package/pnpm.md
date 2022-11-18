@@ -1,5 +1,10 @@
 # pnpm
-## 踩坑
+[基础的东西官网讲的很详细，这里不在赘述](https://www.pnpm.cn/installation)，这里讲一下要注意的细节以及常见的问题
+## 从npm->pnpm
+全局安装 pnpm 后，先删除掉项目中 package-lock.json 以及 node_modules 文件，然后直接 install 就行
+
+在你安装好依赖后 pnpm 会标记出你依赖之间的缺少的依赖，同时推荐给你对应的安装办法，这点很好
+## 常见问题
 ### 安装好了项目跑不起来
 `报找不到 qs 的错误`，死活找不到原因
 
@@ -9,7 +14,7 @@
 
 这样带来的好处是不再如以前一样容易出现依赖冲突，纠正我们之前的一些错误认知
 
-自定义构建脚本中 require('webpack')，require('qs') 是典型的访问幽灵依赖的行为
+自定义构建脚本中 `require('webpack')`，`require('qs')` 是典型的访问幽灵依赖的行为
 
 pnpm 在默认配置下，你需要把 webpack 声明在项目的 package.json -> devDependencies 中才允许使用
 
