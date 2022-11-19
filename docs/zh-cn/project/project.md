@@ -85,12 +85,6 @@ input:-webkit-autofill{
 
 有效果，但是不推荐
 ```
-## url转dataUrl，dataUrl转blob
-```
-前端想将 <img :src=""/> 的 src 的图片传给后端，就必须要转成 File 格式传
-
-因为 src 只是一个 url 地址，不是文件， blob 则是一种特殊的File类型
-```
 
 ## classList是list格式，不能用数组的方法， 而 js 没有 contains 这个方法（类似与 includes ），为啥也可以用
 

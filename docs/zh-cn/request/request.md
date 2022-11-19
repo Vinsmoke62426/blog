@@ -43,55 +43,6 @@ createAsyncTask(() =>{
 console.log('我是同步任务')   //最先输出
 ```
 
-## blob
-
-英文 Binary large Object 二进制大对象
-
-mdn 上的解释是 Blob 对象表示`不可变的类似文件对象的原始数据`
-
-在 axios 中设置 responseType: 'blob' ，字面意思，设置响应类型为 blob，
-
-如果不设置，返回视频流的时候的数据就是乱码，用播放器打开无法观看
-
-但是在做 svg 的下载时，返回的数据是正常的，而 axios 中加不加 responseType: 'blob' 的区别在于
-
-加的话返回的是 blob 对象， 不加的话，返回的就是 实际的内容 `不可变的类似文件对象的原始数据`
-
-blob 的 三个方法 [https://developer.mozilla.org/zh-CN/docs/Web/API/Blob](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob)
-
-其中 Blob.text() 返回一个 promise 且包含 blob 所有内容的 UTF-8 格式的 USVString。
-
-用 Response 对象读取 blob 中的内容：
-
-var text = await (new Response(blob)).text() 
-
-## 文件流转blob对象下载
-之前做svg的dom直接前端下载下来的操作时，传入的 data 是 `dom字符串` 才行
-```js
-// 文件流转blob对象下载
-downloadFile(data, type, fileName) {
-    let blob = new Blob([data], {type: `image/svg+xml;charset=utf-8`});
-    // 获取heads中的filename文件名
-    let downloadElement = document.createElement('a');
-    // 创建下载的链接
-    let href = window.URL.createObjectURL(blob);
-    downloadElement.href = href;
-    // 下载后文件名
-    downloadElement.download = fileName;
-    document.body.appendChild(downloadElement);
-    // 点击下载
-    downloadElement.click();
-    // 下载完成移除元素
-    document.body.removeChild(downloadElement);
-    // 释放掉blob对象
-    window.URL.revokeObjectURL(href);
-},
-```
-
-## axios timeout
-
-timeout 没有默认时间，默认是 0
-
 ## windows查看端口并杀死进程
 
 搜索端口，并通过 id 杀死
@@ -99,22 +50,6 @@ timeout 没有默认时间，默认是 0
 netstat -aon|findstr "8105"
 taskkill /f /pid 18832
 ```
-
-## 上网的四个条件
-
-- ip IP地址
-
-- 子网掩码 解析获取对应局域网中的具体 主机
-
-- dns 解析ip 为域名
-
-- 网关 解析ip地址 获取 mac地址
-
-## 网卡
-
-一个机子有两个网卡，一个是自己自带的，一个是插上去的无限网卡，
-
-一个机子还可以有多个网卡，类似于服务器
 
 ## 掘金快速抽奖
 ```js
@@ -131,7 +66,34 @@ ajax.onreadystatechange = function (){
 }
 ```
 
-## mockjs 会导致 axios 请求失败
-mockjs 和 axios 同时存在的情况下，mockjs 会修改 axios 的 `responseType`
+## blob
+英文 Binary large Object 二进制大对象
 
-导致在上传文件和下载文件的时候 axios 直接报错，走响应拦截的错误拦截器
+mdn 上的解释是 Blob 对象表示`不可变的类似文件对象的原始数据`
+
+blob 的 三个方法 [https://developer.mozilla.org/zh-CN/docs/Web/API/Blob](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob)
+
+其中 Blob.text() 返回一个 promise 且包含 blob 所有内容的 UTF-8 格式的 USVString。
+
+用 Response 对象读取 blob 中的内容：
+
+var text = await (new Response(blob)).text() 
+
+### file类型转base64
+以 el-upload 上传的图片为例
+```js
+const reader = new FileReader();
+reader.readAsDataURL(file.raw);
+reader.onload = function(e){
+  console.log(e)
+}
+```
+另外附上[base64，File，arraybuffer互相转化操作](https://blog.csdn.net/Dalin0929/article/details/127265602)
+
+
+### url转dataUrl，dataUrl转blob
+```
+前端想将 <img :src=""/> 的 src 的图片传给后端，就必须要转成 File 格式传
+
+因为 src 只是一个 url 地址，不是文件， blob 则是一种特殊的File类型
+```
