@@ -14,6 +14,13 @@
 qs.stringify() 处理相当于将 对象格式转化为了表单形式，去掉了外部的括号，然后会被 axios 自动识别为
 
 `"Content-Type": "application/x-www-form-urlencoded"` 形式
+```js
+const obj = {a: 1}
+qs.stringify(obj) // 'a=1'
+
+const string = 'a=1'
+qs.parse(obj) // '{a: '1'}'
+```
 
 > [!TIP]
 > 造成以上情况的原因是：默认情况下，axios将JavaScript对象序列化为JSON也就是 `application/json;charset=UTF-8`
