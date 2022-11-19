@@ -40,12 +40,19 @@ const res = await ApiGetConfigs(params, "blob")
 // 这里附上blob类型大全 https://blog.csdn.net/yin_you_yu/article/details/116261304
 // let suffix = response.headers['content-disposition'].search(/[^\.]\w*$/)
 let blob = new Blob([res], { type: "application/zip" })
-// 创建URL
-let objectUrl = URL.createObjectURL(blob)
-// 这里也可以获取并处理文件名
-location.href = objectUrl
-// 释放内存
-URL.revokeObjectURL(objectUrl)
+// 创建下载的链接
+let downloadElement = document.createElement('a');
+let href = window.URL.createObjectURL(blob);
+downloadElement.href = href;
+// 下载后文件名
+downloadElement.download = fileName;
+document.body.appendChild(downloadElement);
+// 点击下载
+downloadElement.click();
+// 下载完成移除元素
+document.body.removeChild(downloadElement);
+// 释放掉blob对象
+window.URL.revokeObjectURL(href);
 ```
 
 ## 常见问题以及报错
