@@ -20,6 +20,7 @@
 
 - Request
     - [请求相关](zh-cn/request/request.md)
+    - [axios](zh-cn/request/axios.md)
 
 - 随笔
     - [日常](zh-cn/essays/essays.md)
