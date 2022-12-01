@@ -306,3 +306,25 @@ $ratio100vh: var(--ratio100vh);
 这个配置方式有两个注意的点
 - 变量名称前面一定要带 `-`
 - 变量名后面的值一定要是 css 完整的内容，类似与 100px, 100vh， 如果定义 100，然后在使用全局变量的地方拼上px，vh的话是不行的
+
+
+## sass引入其他字体
+去网站上下载 ttf 格式的字体文件
+
+在 sass 全局文件中引入
+```scss
+// common.scss
+
+// 引入电子字体
+@font-face{
+  font-family: 'DS Digital';
+  src: url('../font/DS-DIGI-1.ttf')
+}
+```
+在需要的地方直接使用就行
+```css
+.text {
+  font-family: 'DS Digital';
+}
+```
+
