@@ -32,7 +32,7 @@ qs.parse(string) // '{a: '1'}'
 > 这点[在官网上写的比较详细了](http://www.axios-js.com/zh-cn/docs/#%E4%BD%BF%E7%94%A8-application-x-www-form-urlencoded-format)
 
 ## 接收二进制数据流并下载
-用 axios 的话只需修改请求头参数 `responseType` 为 `blob`，然后 a 链接下载
+用 axios 的话只需修改请求头参数 `responseType` 为 `blob`，然后手动创建 a 链接下载
 ```js
 // 基本模板，
 const res = await ApiGetConfigs(params, "blob")
@@ -54,6 +54,19 @@ document.body.removeChild(downloadElement);
 // 释放掉blob对象
 window.URL.revokeObjectURL(href);
 ```
+### 关于二进制文件流下载的一个补充
+`实际上我们对于二进制流的下载，正常情况下直接使用 a 链接就可以直接下载的`
+
+但是我在做 axios 封装的时候，基本所有的接口都会走我写好的 axios 拦截器
+
+`这种情况我们在页面上拿到的接口就不是纯粹的 url 了，不能直接 a 链接下载了`
+
+我们自己写的接口很少会遇到这种情况
+
+之前在做注册中心的时候，调用阿里不同的人写的接口遇到了一个接口既是获取列表的又是下载列表的场景
+
+我们才会用到上面写的方式，修改请求头参数 `responseType` 为 `blob`，然后手动创建 a 链接下载
+
 
 ## 常见问题以及报错
 ### mockjs 会导致 axios 请求失败
