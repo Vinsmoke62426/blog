@@ -41,6 +41,7 @@
 - css
     - [css综合](zh-cn/css/css.md)
     - [像素](zh-cn/css/px.md)
+    - [svg](zh-cn/css/svg.md)
 
 - git
     - [git相关](zh-cn/git/git.md)
