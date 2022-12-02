@@ -191,3 +191,31 @@ webpack 可以识别 `<%  %>` 这两个字符中的内容
     }
 }
 ```
+
+## vueconfig.js 文件中配置 cdn 加速
+### 为某个依赖配置 cdn 加速，以 echarts 为例
+```js
+// vueconfig.js
+module.exports = {
+  configureWebpack: {
+    // 选择cdn加速的资源名称（import echarts from echarts）
+    externals: {
+      // echarts: 'echarts'
+    }
+  },
+
+  pages: {
+    index: {
+      // cdn加速
+      cdn: {
+        prefetch: [],
+        css: [],
+        js: [
+          // 'https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.js',
+        ]
+      }
+    }
+  }
+}
+
+```
