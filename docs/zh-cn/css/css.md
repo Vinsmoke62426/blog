@@ -328,3 +328,39 @@ $ratio100vh: var(--ratio100vh);
 }
 ```
 
+## 卡片布局
+之前遇到了一个很低级的问题
+
+在做卡片组件的时候,有下面这样的需求
+```css
+.wrap {
+  height: 100%;
+  .title-box {
+    /* 未知高度title */
+  }
+  .content-box {
+    /* 下面的内容撑满 总的盒子高度减去 title 的高度 */
+    height: 100%;
+  }
+}
+```
+但是最终得到的效果却是 
+
+.content-box 的高度和整个容器 .wrap 高度相同，然后导致 .content-box 超出了整个容器的高度
+
+
+最终的解决办法应该是用 flex 布局来做，简单易懂
+```css
+.wrap {
+  display: flex;
+  flex-direction: column;
+  .title-box {
+    /* 未知高度title */
+  }
+  .content-box {
+    /* 下面的内容撑满 总的盒子高度减去 title 的高度 */
+    flex: 1;
+  }
+}
+```
+
