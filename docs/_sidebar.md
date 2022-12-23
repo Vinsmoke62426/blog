@@ -43,6 +43,10 @@
     - [像素](zh-cn/css/px.md)
     - [svg](zh-cn/css/svg.md)
 
+- echarts
+    - [4.0升级到5.0](zh-cn/echarts/5.0.md)
+    - [其他注意事项](zh-cn/echarts/other.md)
+
 - git
     - [git相关](zh-cn/git/git.md)
 
