@@ -21,3 +21,20 @@
   type="image/svg+xml"
 />
 ```
+
+## 手动创建一个 svg 中的 dom
+
+```js
+// 该方式创建的svg元素不显示，一定要用 createElementNS 且加上命名空间
+// let rect = svgDoc.createElement("rect"); 
+
+let rect = document.createElementNS( "http://www.w3.org/2000/svg", "rect" );
+rect.setAttribute("id", "myrect");
+rect.setAttribute("x", 0);
+rect.setAttribute("y", 0);
+rect.setAttribute("width", 100);
+rect.setAttribute("height", 100);
+rect.setAttribute("style", "stroke:black;stroke-size:1;stroke-dasharray:1;fill:none;");
+// 最终再添加到指定的dom下
+svg.appendChild(rect)
+```
