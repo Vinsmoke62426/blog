@@ -23,6 +23,7 @@
 ```
 
 ## 手动创建一个 svg 中的 dom
+[createElementNS](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createElementNS)
 
 ```js
 // 该方式创建的svg元素不显示，一定要用 createElementNS 且加上命名空间
