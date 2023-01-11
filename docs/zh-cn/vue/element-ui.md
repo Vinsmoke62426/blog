@@ -211,3 +211,24 @@ Invalid handler for event "input": got undefined
 ## el-upload 的几种使用情况
 [自动上传与修改默认的上传方式](https://www.jianshu.com/p/b141b968723c)
 
+## el-menu 的左侧菜单栏收起导致的一系列问题
+
+element-ui 的左侧菜单栏如果使用它自带的收起和展开功能，需要配上如下样式才能解决动画不流畅的问题
+
+```css
+// 官网上 解决菜单收缩不顺畅的问题
+.el-menu-vertical:not(.el-menu--collapse) {
+  border: 0;
+  width: 200px;
+  min-height: 400px;
+}
+```
+但是如果你在左侧菜单栏的上面或下面加上你自定义的元素
+
+你模仿 el-menu 的动画效果，在收起菜单的时候，隐藏文字，只显示图片，在展开菜单的时候你会发现
+
+你展开显示的文字会在你点击的一瞬间也就是菜单还没完全展开的时候就显示了
+
+文体会撑起左侧菜单的宽度，导致整个左侧菜单的动画不流畅
+
+最简单的解决办法就是为这个 `<span>` 标签`设置宽度为 0px`
