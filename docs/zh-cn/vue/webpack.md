@@ -219,3 +219,23 @@ module.exports = {
 }
 
 ```
+
+## 打包后通过修改静态文件的内容来做到动态发布
+
+1. public 中创建 config.js 文件
+2. 直接在文件中创建变量
+```js
+// config.js
+const staticConfig = {
+  baseUrl: '/xxx'
+}
+```
+3. 在 `index.html` 文件中引入
+```html
+<script src="config.js"></script>
+```  
+4. 之后除了不能用在 `vue.config.js` 文件中，其他文件都是直接使用就行
+```js
+console.log(staticConfig.baseUrl)
+```
+5. 这样就算打包发布到远程后，通过修改 `config.js` 文件就可以做到动态的影响内部所有使用变量的地方了   
