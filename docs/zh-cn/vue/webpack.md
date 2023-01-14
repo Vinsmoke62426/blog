@@ -238,4 +238,7 @@ const staticConfig = {
 ```js
 console.log(staticConfig.baseUrl)
 ```
-5. 这样就算打包发布到远程后，通过修改 `config.js` 文件就可以做到动态的影响内部所有使用变量的地方了   
+5. 这样就算打包发布到远程后，通过修改 `config.js` 文件就可以做到动态的影响内部所有使用变量的地方了
+
+
+
