@@ -241,4 +241,14 @@ console.log(staticConfig.baseUrl)
 5. 这样就算打包发布到远程后，通过修改 `config.js` 文件就可以做到动态的影响内部所有使用变量的地方了
 
 
-
+## 适配低版本浏览器
+不用做多余的操作，只要在 `package.json`中配置一下就可解决
+```json
+// package.json
+{
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
+```
