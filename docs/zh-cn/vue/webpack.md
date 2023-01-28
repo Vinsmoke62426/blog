@@ -242,7 +242,11 @@ console.log(staticConfig.baseUrl)
 
 
 ## 适配低版本浏览器
-不用做多余的操作，只要在 `package.json`中配置一下就可解决
+旧版本的微信自带的浏览器内核用的是很老的 chrome
+
+代码打包后放在上面运行会对es6等新特性报错
+
+解决方法：不用做多余的操作，只要在 `package.json`中配置一下就可解决
 ```json
 // package.json
 {
@@ -252,3 +256,4 @@ console.log(staticConfig.baseUrl)
   ]
 }
 ```
+理论上创建 `.browserslistrc` 文件也是可以的，但是可能会无效
