@@ -4,7 +4,7 @@
 ```
 npm config get userconfig
 ```
-.mpmrc 文件
+.mpmrc 文件如下
 
 ![](../../images/npmrc.png)
 
