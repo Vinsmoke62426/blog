@@ -54,6 +54,7 @@
     - [pnpm](zh-cn/package/pnpm.md) 
     - [packageJson](zh-cn/package/packageJson.md)
     - [day.js](zh-cn/package/dayjs.md)
+    - [组件库nexus](zh-cn/package/nexus.md)
 
 - React
     - [React相关](zh-cn/react/react.md)
