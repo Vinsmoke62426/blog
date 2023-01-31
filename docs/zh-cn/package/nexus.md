@@ -1,5 +1,11 @@
 # nexus
 ## 配置私有的npm下载和publish地址
+查看 .npmrc 文件位置
+```
+npm config get userconfig
+```
+.mpmrc 文件
+
 ![](../../images/npmrc.png)
 
 加了@的是加了命名空间的registry，可以在你publish带@epnc或者@penc-test前缀的组件时，自动识别
