@@ -51,6 +51,7 @@
     - [git相关](zh-cn/git/git.md)
 
 - package
+    - [发布组件相关内容](zh-cn/package/components.md)
     - [pnpm](zh-cn/package/pnpm.md) 
     - [packageJson](zh-cn/package/packageJson.md)
     - [day.js](zh-cn/package/dayjs.md)
