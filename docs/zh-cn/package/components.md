@@ -1,8 +1,4 @@
 # 封装组件相关内容
-## 抛出组件的两种方式
-### module.exports = require("./sm4Util.js")
-module.exports 默认抛出对象
-
 ## js 模块化
 JS模块化，主要存在以下几类。
 
