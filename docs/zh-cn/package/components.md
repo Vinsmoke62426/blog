@@ -98,30 +98,19 @@ UMD实质为做了三件事
 UMD代码示例：
 ```js
 (function (root, factory) {
-
-　　if  (typeof define === 'function' && define.amd) {
-
-　　　　// 如果满足AMD规范，则使用AMD规范　
-
-　　　　define([], factory);
-
-　　}  else if (typeof exports === 'object') {
-
-　　　　// 判断是否满足CommonJS
-
-　　　　module.exports = factory();
-
-　　} else {
-
-　　　　root.returnExports = factory();
-
-　　}
-
+  if  (typeof define === 'function' && define.amd) {
+    // 如果满足AMD规范，则使用AMD规范　
+    define([], factory);
+  } else if (typeof exports === 'object') {
+    // 判断是否满足CommonJS
+    module.exports = factory();
+  } else {
+    // Global (browser) root is window
+    root.returnExports = factory();　
+  }
 }(this, function() {
-
-　　return {};
-
-});
+  return {};
+}))
 ```
 ### ES6 module
 EcmaScript Module
