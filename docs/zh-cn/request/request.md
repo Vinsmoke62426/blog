@@ -97,3 +97,8 @@ reader.onload = function(e){
 
 因为 src 只是一个 url 地址，不是文件， blob 则是一种特殊的File类型
 ```
+
+
+## 关于接口参数以及url参数处理
+
+[官方自带的方法，最好也是最简单的 `URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
