@@ -32,7 +32,7 @@ const service = axios.create({
 >
 > 为整个项目打包后配置前缀，最简单的办法就是1.不设置router的mode，直接用默认的hash模式，base也不配置
 >
-> 2.用 publicPath 而不用 assetsDir assetsDir会给静态资源加上真正的路径，直接在文件夹中就可以看到，这样很不灵活，违背了初衷
+> 2.用 publicPath 且为相对路径（''或者'./'）而不用 assetsDir assetsDir会给静态资源加上真正的路径，直接在文件夹中就可以看到，这样很不灵活，违背了初衷
 >
 > 3.接口地址的baseURL也不配置，用默认值，然后api内部写的接口地址不加前面的 / 
 >
