@@ -234,7 +234,7 @@ const staticConfig = {
 ```html
 <script src="/config.js"></script>
 ```  
-4. 之后除了不能用在 `vue.config.js` 文件中，其他文件都是直接使用就行
+4. 之后除了不能用在 `vue.config.js` 文件中，其他文件都是直接使用就行(后来发现，实际上在 vue.config.js 文件中根本不需要配置环境变量)
 ```js
 console.log(staticConfig.baseUrl)
 ```
