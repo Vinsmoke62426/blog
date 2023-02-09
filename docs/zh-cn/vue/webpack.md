@@ -225,14 +225,14 @@ module.exports = {
 1. public 中创建 config.js 文件
 2. 直接在文件中创建变量
 ```js
-// config.js
+// public/config.js
 const staticConfig = {
   baseUrl: '/xxx'
 }
 ```
 3. 在 `index.html` 文件中引入
 ```html
-<script src="config.js"></script>
+<script src="/config.js"></script>
 ```  
 4. 之后除了不能用在 `vue.config.js` 文件中，其他文件都是直接使用就行
 ```js
