@@ -85,3 +85,12 @@ export function resetRouter() {
 `都是缓存的锅`
 
 但是最后还留有一个问题，这些 304 资源 虽然是 200 的状态码，但是都没有请求到资源，不只是是什么原因
+
+## Syntax Error: TypeError: Cannot read property 'parseComponent' of undefined
+固定了vue版本为2.7.0后，运行报错
+
+原因：`vue` 版本一定要和 `vue-template-compiler` 版本一致
+
+解决办法：我回退 vue 为 2.6.14 版本，然后统一 vue-template-compiler 也为 2.6.14
+
+疑问： 虽然统一版本后解决了问题，但是不知道为什么 2.7.0 以上的版本报的都是 vue3 的错误，理论上是兼容的
