@@ -34,10 +34,11 @@ vue3 的 ui 组件 element-plus 中的 package.json 文件中这样写到
 
 ## vue版本无法锁定的问题
 这三个依赖中的一个或者多个会导致在组件内部限制的vue版本在当前项目无法锁定vue版本？？？
-```
+```json
+// package.json
 "vue-class-component": "^7.2.6",
-    "vue-json-excel": "^0.3.0",
-    "vue-property-decorator": "^9.1.2",
+"vue-json-excel": "^0.3.0",
+"vue-property-decorator": "^9.1.2",
 ```
 
 那是当然的，主项目内依赖了多个组件中，如果这些组件内部都依赖了 vue 
