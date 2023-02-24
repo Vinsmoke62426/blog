@@ -12,3 +12,11 @@
 ```
 /home/staragent/bin/staragentctl restart
 ```
+### 关于是否需要重启center容器
+为什么发布到euraka本地的时候，需要重启center？
+
+本地的center是放在容器中
+
+重新发布项目后，对应的ip地址会变，所以要重启center
+
+而epnc18，测试环境下的 nginx 是做成一个软件的，不需要重启
