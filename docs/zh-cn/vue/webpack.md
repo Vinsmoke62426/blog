@@ -257,3 +257,10 @@ console.log(staticConfig.baseUrl)
 }
 ```
 理论上创建 `.browserslistrc` 文件也是可以的，但是可能会无效
+
+>[!Danger]
+> 上面写的有问题,配置了 browserslist 后，还要配合[transpileDependencies属性](https://blog.csdn.net/tglsaturn/article/details/117366008)一起
+
+其实[官网](https://cli.vuejs.org/zh/guide/browser-compatibility.html)上讲的很详细了，无奈有些我看不懂
+
+[vue-element-admin](https://panjiachen.gitee.io/vue-element-admin-site/zh/guide/other/faq.html#%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE)上也有对浏览器兼容的处理方式
