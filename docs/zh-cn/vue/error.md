@@ -94,3 +94,7 @@ export function resetRouter() {
 解决办法：我回退 vue 为 2.6.14 版本，然后统一 vue-template-compiler 也为 2.6.14
 
 疑问： 虽然统一版本后解决了问题，但是不知道为什么 2.7.0 以上的版本报的都是 vue3 的错误，理论上是兼容的
+
+
+## Uncaught SyntaxError: Unexpected identifier
+低版本浏览器报错，可以先配置 browserslist 
