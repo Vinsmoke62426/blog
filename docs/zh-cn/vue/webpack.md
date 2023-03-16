@@ -258,6 +258,8 @@ console.log(staticConfig.baseUrl)
 ```
 理论上创建 `.browserslistrc` 文件也是可以的，但是可能会无效
 
+[browserslist详细参数](https://segmentfault.com/a/1190000042212344?sort=newest)
+
 >[!Danger]
 > 上面写的有问题,配置了 browserslist 后，还要配合[transpileDependencies属性](https://blog.csdn.net/tglsaturn/article/details/117366008)一起
 
