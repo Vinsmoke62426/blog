@@ -379,3 +379,7 @@ chunk-6a4979c0.e887fde1.css
 优点：防止更新后出现缓存
 
 缺点：单页面应用都是不利于seo的
+
+
+## 指令
+借用elementui的clickoutside自定义指令[源码](https://www.jianshu.com/p/586581ad62c3)来详细学习指令相关知识
