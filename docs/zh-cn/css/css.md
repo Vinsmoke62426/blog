@@ -376,3 +376,13 @@ $ratio100vh: var(--ratio100vh);
 }
 ```
 中文也不会换行了
+
+## 子元素垂直居中
+为父元素设置
+```css
+.parent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+```
