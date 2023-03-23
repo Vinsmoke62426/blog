@@ -1,6 +1,8 @@
 ## package.json文件
 [官方中文文档](http://javascript.ruanyifeng.com/nodejs/packagejson.html)
 
+[关于所有的配置项及其用法，以及不同协议的区别](https://blog.51cto.com/u_15689678/5426006)
+
 ### peerDependencies 并行依赖
 vue3 的 ui 组件 element-plus 中的 package.json 文件中这样写到
 ```json
@@ -22,6 +24,8 @@ vue3 的 ui 组件 element-plus 中的 package.json 文件中这样写到
 }
 ```
 上面代码指定，安装 `chai-as-promised` 模块时，主程序 `chai` 必须一起安装，而且 `chai` 的版本必须是 `1.x` 。如果你的项目指定的依赖是 `chai` 的 2.0 版本，就会报错。
+
+[一文搞懂peerDependencies](https://blog.csdn.net/astonishqft/article/details/105671253)
 
 ### 
 ![](../../images/package-lock.png)

@@ -31,6 +31,9 @@ module.exports = {
 > 
 > 但是这是 dev 模式下的代理，发布到远程后，还要在 nginx 配置文件上配置相同的代理才行😊
 
+关于这里的nodejs代理，实际上vue官方用的是第三方开源工具`http-proxy-middleware`
+
+可以去 github 查看详细配置。[这里是别人写的一些较复杂的匹配方式写法](https://blog.csdn.net/qq_33234788/article/details/82983333)
 
 
 ## sass 配置全局混入
