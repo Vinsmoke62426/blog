@@ -102,3 +102,8 @@ reader.onload = function(e){
 ## 关于接口参数以及url参数处理
 
 [官方自带的方法，最好也是最简单的 `URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
+
+## 关于浏览器缓存
+分为`强缓存`和`协商缓存`，目前组织架构图片接口用的就是`强缓存`
+
+[这篇文章讲的很详细](https://blog.csdn.net/weixin_43788494/article/details/108093729)但是协商缓存我没有仔细看
