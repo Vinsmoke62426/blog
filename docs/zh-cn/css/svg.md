@@ -54,3 +54,5 @@ svg.appendChild(rect)
 特点：可以显示image标签，但是同时也会请求image标签上的href地址，这不是我们想要的
 
 解决办法在[这里](../request/request.md)
+
+也可使用第三方依赖`svg-injector`,我没有详细看
