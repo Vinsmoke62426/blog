@@ -139,3 +139,5 @@ const xhr = new XMLHttpRequest()
     const template = `<img src="${blobStr}">`;
 
 ```
+
+关于更多的原生js请求可以参考[这里](https://blog.csdn.net/SK_study/article/details/123768485)
