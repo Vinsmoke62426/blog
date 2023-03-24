@@ -39,3 +39,18 @@ rect.setAttribute("style", "stroke:black;stroke-size:1;stroke-dasharray:1;fill:n
 // 最终再添加到指定的dom下
 svg.appendChild(rect)
 ```
+
+### svg 渲染在页面上的各种方法以及差异
+[这篇文章写的很详细](https://segmentfault.com/a/1190000010942431)
+
+整体可以分为两大类
+
+一类是 img标签，div背景图片，picture标签
+
+特点：可以用文件地址直接渲染，但是svg内部的image标签都无法显示
+
+第二类是 iframe标签， embed标签， object标签
+
+特点：可以显示image标签，但是同时也会请求image标签上的href地址，这不是我们想要的
+
+解决办法在[这里](../request/request.md)
