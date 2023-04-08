@@ -1,5 +1,5 @@
-## Vue实例
-### vue.use() 和 new vue() 的联系
+# Vue实例
+## vue.use() 和 new vue() 的联系
 `vue.use()` 是让你能在 .vue 文件中使用 this 访问对应的插件，如 `this.$router`, `this.$store`, 否则打印`this`的时候里面是没有`$router`和`$store`的
 
 但是在main.js文件中，一般会有下面的代码
@@ -24,7 +24,7 @@ new Vue({
 tips: `vue.use()`必须在`new vue()`之前，`use()`的时候括号里面插件的代码会运行一次。
 
 
-### Vue项目的文件执行顺序
+## Vue项目的文件执行顺序
 ```js
   new Vue({
     el: "#app",  //告诉该实例要挂载的地方
@@ -42,7 +42,7 @@ tips: `vue.use()`必须在`new vue()`之前，`use()`的时候括号里面插件
 
 所以我们会看到有那么一瞬间会显示出`index.html`中正文的内容。
 
-### 函数式组件
+## 函数式组件
 常规写法：
 ```vue
 <template>
@@ -116,8 +116,58 @@ export default {
 }
 </script>
 ```
+## 关于vue中像react一样创建一个jsx vnode后如何拿到它的原始dom的问题
+### 为什么会有这个问题
+vue 中用 render 函数创建的vnode，无论是在 components 中创建的还是直接在代码中直接写的vnode
 
-### 什么时候要用 Vue.set()
+你想直接获取这个vnode 的原始dom只能通过你在 template 模板中使用vnode后，再通过其 `$el` 属性获取到
+
+但是如果这个 vnode 我只是想像 jsx 那样方便的写，但是最终我要的还是像 `document.createElement("div")` 或者 `"<div>123</div>"`这样形式的内容怎么办呢
+
+像原生一样，我不想事先挂载在模板中，类似于封装全局的 message 这样的需求，你不可提前挂载的，你只能手动添加到 body 中（虽然这违背了 vue 的宗旨）
+
+这个问题以前困扰了我很久，其实还是对 vue 原理的不够了解
+
+### 解决方法
+Vue.extend 的作用，就是基于 Vue 构造器，创建一个"子类"，它的参数跟 new Vue 的基本一样，但 data 要跟组件一样，是个函数，再配合 $mount ，就可以让组件渲染，并且挂载到任意指定的节点上，比如 body
+
+```js
+import Vue from 'vue'
+
+// MyComponent就像一个构造器一样
+const MyComponent = Vue.extend({
+  template: '<div>{{ message }}</div>',
+  data () {
+    return {
+      message: 'Hello, Aresn'
+    };
+  },
+});
+/* 
+我们调用了 $mount 方法对组件进行了手动渲染，但它仅仅是被渲染好了，并没有挂载到节点上，也就显示不了组件。此时的 component 已经是一个标准的 Vue 组件实例，因此它的 $el 属性也可以被访问，当然，拿到el后想做什么dom操作都行了 
+*/
+const component = new MyComponent().$mount();
+document.body.appendChild(component.$el);
+// 到此就结束了
+
+// $mount 也有一些快捷的挂载方式，以下两种都是可以的
+// 在 $mount 里写参数来指定挂载的节点
+new MyComponent().$mount('#app');
+// 不用 $mount，直接在创建实例时指定 el 选项
+new MyComponent({ el: '#app' });
+
+// 实现同样的效果，除了用 extend 外，也可以直接创建 Vue 实例，并且用一个 Render 函数来渲染一个 .vue 文件或者渲染 jsx
+const Instance = new Vue({
+  render (h) {
+    return <div>123</div>
+  }
+});
+// 注意这里的 Instance 不是函数了
+const component = Instance.$mount();
+document.body.appendChild(component.$el);
+```
+
+## 什么时候要用 Vue.set()
 Vue2.x 实现双向数据绑定原理，是通过 es5 的 Object.defineProperty，手动去定义一个 getter 和 setter，根据具体的key去读取和修改。
 
 其中的 setter 方法来实现数据劫持的，getter 实现数据的修改。
@@ -128,7 +178,7 @@ Vue2.x 实现双向数据绑定原理，是通过 es5 的 Object.defineProperty�
 
 vue2 的解决方法是使用 vue 的全局方法 Vue.set(object, propertyName, value) 等方法向嵌套对象添加响应式。
 
-### `$ref` 和 `$el`  
+## `$ref` 和 `$el`  
 `this.$ref['标签上的ref名称']` 可以获取到一个 dom 元素。
 
 如果 `this.$ref['子组件上的ref名称']` 得到的就是子组件的实例，你可以在后面接着使用子组件的方法。
@@ -137,7 +187,7 @@ vue2 的解决方法是使用 vue 的全局方法 Vue.set(object, propertyName, 
 
 `this.$ref['子组件上的ref名称'].$el.offsetTop` (用来获取子组件的 offsetTop)
 
-### computed 和 methods
+## computed 和 methods
 computed 和 methods 里面函数的区别在于:
 
 computed 里面的函数调用的时候不需要带括号，带有缓存的能力，初始的时候会执行一次，只要其监听的数据不改变，则不改变，执行时直接返回上一次的值。
@@ -146,7 +196,7 @@ methods 里面的函数，只要你调用，就执行。
 
 vue 中的 computed 和 methods 都`混入了 vue 实例中`，所以使用箭头函数指向的不是当前组件，要用常规函数
 
-### keepAlive 生命周期
+## keepAlive 生命周期
 正常生命周期：beforeRouteEnter --> created --> mounted --> updated --> destroyed
 
 使用keepAlive后生命周期：
@@ -155,9 +205,9 @@ vue 中的 computed 和 methods 都`混入了 vue 实例中`，所以使用箭�
 
 再次进入缓存页面：beforeRouteEnter --> activated --> deactivated
 
-### vue修饰符
+## vue修饰符
 
-#### .sync
+### .sync
 `当父组件传值进子组件，子组件想要改变这个值时，可以这么做`
 ```html
 父组件里
@@ -174,7 +224,7 @@ this.$emit('update:foo', newValue)
 子组件里
 this.$emit('update:foo', newValue)
 ```
-#### .keyCode
+### .keyCode
 ```html
 当我们这么写事件的时候，无论按什么按钮都会触发事件
 <input type="text" @keyup="shout(4)">
@@ -213,7 +263,7 @@ Vue提供的keyCode：
 <input type="text" @keyup.ctrl.67="shout(4)">
 ```
 
-### 作用域插槽
+## 作用域插槽
 插槽一般就作用域插槽用的多
 
 作用域插槽实际运用场景: 提供的组件可以从子组件获取数据
@@ -241,12 +291,12 @@ Vue提供的keyCode：
 </div>
 ```
 
-### el-dialog 组件的 sync 关闭
+## el-dialog 组件的 sync 关闭
 遇到 dialog 组件时，关闭弹框的时候会报，不能改变 props 中的内容，
 
 解决方法是，用 :before-close 回调方法去关闭，不用 @close 等事件
 
-### baseURL
+## baseURL
 vue 项目配置代理的目的，一版都是为了解决跨越问题，如果是 dev 环境的话，直接配置 proxy 就行
 
 但是如果是 prod 环境，配置 axios 的 baseURL 就行，
@@ -273,7 +323,7 @@ service.interceptors.request.use(
 );
 ```
 
-### 嵌套命名视图
+## 嵌套命名视图
 用嵌套命名视图做页面的布局是可行的：
 ```js
 Viewer 是一个视图组件，里面可以放多个 <router-view></router-view>
@@ -347,14 +397,14 @@ Viewer 是一个视图组件，里面可以放多个 <router-view></router-view>
 }
 ```
 
-### beforeRouteLeave(to, from, next)
+## beforeRouteLeave(to, from, next)
 第一次在组件内部使用 `beforeRouteLeave`, 这个本身是一个路由离开页面的钩子
 
 但是在组件内部中直接使用时，是作为一个生命周期来使用的，然后用的时候出现了不生效的问题
 
 原因是：这个生命周期只能在上级的父组件中使用，子组件使用无效，这个挺坑的
 
-### 重组data()中的数据
+## 重组data()中的数据
 重组 `data()` 中的数据时，如果 `data()` 中，使用了 `this` 来调用 `props 中的变量` 或者 `methods 中的函数`
 
 建议使用
@@ -371,7 +421,7 @@ Object.assign(this.$data, this.$options.data())
 Object.assign(this.$data.form, this.$options.data().form)
 ```
 
-### vue打包发布版本后的防止缓存机制
+## vue打包发布版本后的防止缓存机制
 vue 每次打包后生成的js或者css在的名字都自动带上了一个随机数类似
 ```
 chunk-6a4979c0.e887fde1.css

@@ -57,6 +57,9 @@
     - [day.js](zh-cn/package/dayjs.md)
     - [组件库nexus](zh-cn/package/nexus.md)
 
+- threejs相关
+    - [项目上设计到的一些内容](zh-cn/threejs/project.md)
+
 - React
     - [React相关](zh-cn/react/react.md)
 

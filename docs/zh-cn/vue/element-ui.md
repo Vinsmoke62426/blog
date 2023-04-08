@@ -10,7 +10,7 @@
 ### 组件内统一用插槽做
 
 直接在 dom 中写 和用 组件 render 都行
-```vue
+```js
 <!-- 递归组件内 -->
 <template>
     <el-table-column>   
