@@ -172,6 +172,23 @@ document.body.appendChild(component.$el);
 
 [参考2](https://blog.csdn.net/qq_31281245/article/details/127325837?spm=1001.2014.3001.5502)
 
+### 其他注意事项
+使用 render 函数的时候,记得外面包着的是对象
+```js
+{
+  render() {
+    return <div>xxx</div>
+  }
+}
+
+// 或者用箭头函数
+{
+  render: () => {
+    return <div>xxx</div>
+  }
+}
+```
+
 ## 什么时候要用 Vue.set()
 Vue2.x 实现双向数据绑定原理，是通过 es5 的 Object.defineProperty，手动去定义一个 getter 和 setter，根据具体的key去读取和修改。
 
