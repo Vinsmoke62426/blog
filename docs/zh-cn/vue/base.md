@@ -165,7 +165,12 @@ const Instance = new Vue({
 // 注意这里的 Instance 不是函数了
 const component = Instance.$mount();
 document.body.appendChild(component.$el);
+
+// 最后要注意的一点是,用 $mount 创建的实例最后理论上也要用 $destroy 来销毁
 ```
+[参考1](https://blog.csdn.net/qq_31281245/article/details/127317024)
+
+[参考2](https://blog.csdn.net/qq_31281245/article/details/127325837?spm=1001.2014.3001.5502)
 
 ## 什么时候要用 Vue.set()
 Vue2.x 实现双向数据绑定原理，是通过 es5 的 Object.defineProperty，手动去定义一个 getter 和 setter，根据具体的key去读取和修改。
