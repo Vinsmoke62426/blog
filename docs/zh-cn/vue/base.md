@@ -220,6 +220,9 @@ methods 里面的函数，只要你调用，就执行。
 
 vue 中的 computed 和 methods 都`混入了 vue 实例中`，所以使用箭头函数指向的不是当前组件，要用常规函数
 
+## data为什么是函数
+如果组件被复用了,就可以防止多个组件实例对象之间公用一个data,data中的数据修改了会互相影响的问题
+
 ## keepAlive 生命周期
 正常生命周期：beforeRouteEnter --> created --> mounted --> updated --> destroyed
 
