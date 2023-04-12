@@ -172,6 +172,8 @@ document.body.appendChild(component.$el);
 
 [参考2](https://blog.csdn.net/qq_31281245/article/details/127325837?spm=1001.2014.3001.5502)
 
+[参考奇舞团文章,直接看这个就够了](https://blog.csdn.net/qiwoo_weekly/article/details/127563705)
+
 ### 其他注意事项
 使用 render 函数的时候,记得外面包着的是对象
 ```js

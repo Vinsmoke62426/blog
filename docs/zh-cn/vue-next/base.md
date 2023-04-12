@@ -8,3 +8,6 @@
 [先看官方](https://v3.cn.vuejs.org/api/sfc-script-setup.html#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95)
 
 这个挺有意思的
+
+## 关于在选项式api中写组合式api
+[官方解释](https://cn.vuejs.org/guide/extras/composition-api-faq.html#trade-offs),注意这里面讲的 `setup` 是关键点
