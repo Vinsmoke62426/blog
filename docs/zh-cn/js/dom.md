@@ -16,3 +16,6 @@ wrap.outerHTML = wrap.innerHTML
 `parantDom.insertBefore(newDom, nextDom)`
 
 将 newDom 插入到 parantDom 的 childNode 下面的 nextDom 前面
+
+## 用ResizeObserver替代resize
+[参考](https://blog.csdn.net/qq_32615575/article/details/122607120)
