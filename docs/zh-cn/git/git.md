@@ -48,3 +48,8 @@ git默认配置是忽略大小写的，这可能会导致在多人开发的时�
 ```
 git config core.ignorecase false
 ```
+
+上面的方法也不好，建议删除远程仓库Header文件夹下的所有文件，然后再正常提交
+```
+git rm --cached src/components/Header -r
+```
