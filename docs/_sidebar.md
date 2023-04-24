@@ -56,6 +56,7 @@
     - [packageJson](zh-cn/package/packageJson.md)
     - [day.js](zh-cn/package/dayjs.md)
     - [前端2d库](zh-cn/package/2d.md)
+    - [甘特图](zh-cn/package/gantt.md)
     - [组件库nexus](zh-cn/package/nexus.md)
 
 - threejs相关
