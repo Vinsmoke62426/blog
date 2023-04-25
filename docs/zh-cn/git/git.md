@@ -53,3 +53,8 @@ git config core.ignorecase false
 ```
 git rm --cached src/components/Header -r
 ```
+
+### 撤销本地分支与远程分支的映射关系
+```
+git branch --unset-upstream
+```
