@@ -614,3 +614,7 @@ null >>> 0
 ### 位移运算符 >>, >>>
 [这里配合上图片讲的就挺详细的](http://c.biancheng.net/view/5471.html)
 [附带在线进制转换网址](https://jisuan5.com/decimal/?hex=1)
+
+
+### 为对象设置 get 和 set
+[这篇文章写的就已经很详细了](https://www.jianshu.com/p/ece23bbc1dc9)
