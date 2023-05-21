@@ -20,3 +20,8 @@
 重新发布项目后，对应的ip地址会变，所以要重启center
 
 而epnc18，测试环境下的 nginx 是做成一个软件的，不需要重启
+
+epnc18 重启center命令
+```
+sudo /home/epnc/app/nginx/sbin/nginx -c /home/epnc/app/nginx/conf/nginx-center.conf
+```
