@@ -47,6 +47,7 @@
 - echarts
     - [4.0升级到5.0](zh-cn/echarts/5.0.md)
     - [其他注意事项](zh-cn/echarts/other.md)
+    - [统计图种类介绍](zh-cn/echarts/type.md)
 
 - git
     - [git相关](zh-cn/git/git.md)
