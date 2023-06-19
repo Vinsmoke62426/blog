@@ -32,8 +32,14 @@ this.$router.replace({
 })
 ```
 
+## 关于路由懒加载
+什么是路由懒加载？
 
+### 路由加载的两种方式
+1. `components: () => import('@/views/home')` 需要访问对应的路由的时候才加载(`懒加载`)
+2. `components: () => Home` 会在页面访问之前就全部提前加载完成
 
+`绝大部分情况建议使用懒加载的形式`
 
 ## router-view 和 component:is
 功能相同,适用不同业务场景
