@@ -40,6 +40,7 @@
 
 - css
     - [css综合](zh-cn/css/css.md)
+    - [scss相关](zh-cn/css/scss.md)
     - [css&sass风格指南](zh-cn/css/rules.md)
     - [像素](zh-cn/css/px.md)
     - [svg](zh-cn/css/svg.md)
