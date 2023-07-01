@@ -7,6 +7,11 @@
 @debug '88888' $variable
 ```
 
+### 合并两个map
+```scss
+$themes: map-merge($dark, $light);
+```
+
 ### 将一个内部变量提升为全局使用
 ```scss
 @mixin func {
