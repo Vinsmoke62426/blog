@@ -618,3 +618,13 @@ null >>> 0
 
 ### 为对象设置 get 和 set
 [这篇文章写的就已经很详细了](https://www.jianshu.com/p/ece23bbc1dc9)
+
+### 函数拦截（函数替换）
+```js
+var _alert = window.alert;                   
+    window.alert = function(str) {
+        // do something additional
+        if(console) console.log(str);
+        return _alert.apply(this, arguments);  // <-- The universal method
+    };
+```
