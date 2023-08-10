@@ -58,3 +58,12 @@ git rm --cached src/components/Header -r
 ```
 git branch --unset-upstream
 ```
+
+### 回退代码
+尽量用 git soft reset 不要用 git hard reset
+
+soft 回退后被回退的代码会暂时放在暂存区，然后执行 stash 将这些代码存起来
+
+hard 回退后被回退的代码直接就没有了
+
+`回退后，要push，只能 git push --force 去覆盖远程的仓库代码`
