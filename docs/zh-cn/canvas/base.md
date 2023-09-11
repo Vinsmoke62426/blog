@@ -73,4 +73,4 @@ image.onload = () => {
 > [!TIP]
 > 最后找到解决方案 src 用 require 引入地址，可以用相对路径
 
-原因：这里设计到 webpack 的对于图片的编码
+原因：这涉及到 webpack 的对于图片的编码

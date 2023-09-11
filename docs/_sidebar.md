@@ -27,6 +27,7 @@
 
 - 项目相关
     - [小记](zh-cn/project/project.md)
+    - [关于ui以及设计风格](zh-cn/project/ui.md)
 
 - uni-app
     - [踩坑](zh-cn/uni-app/problem.md)
@@ -63,7 +64,7 @@
     - [组件库nexus](zh-cn/package/nexus.md)
 
 - threejs相关
-    - [项目上设计到的一些内容](zh-cn/threejs/project.md)
+    - [项目上涉及到的一些内容](zh-cn/threejs/project.md)
 
 - React
     - [React相关](zh-cn/react/react.md)
