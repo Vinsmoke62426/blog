@@ -53,6 +53,10 @@ tips: 补充一点
 }
 ```
 
+## 旧版的npmrc文件
+由于修改了epnce.com为ip，故保存一版旧的配置
+![](../../images/npmrcOld.png)
+
 ## 关于切换 .npmrc 文件
 全局下载 npmrc，它是一种 .npmrc管理工具，类似于 nvm.可以做到轻松切换 .npmrc 文件
 
