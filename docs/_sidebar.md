@@ -51,6 +51,10 @@
     - [其他注意事项](zh-cn/echarts/other.md)
     - [统计图种类介绍](zh-cn/echarts/type.md)
 
+- 画布
+    - [基础](zh-cn/canvas/base.md)
+    - [fabric.js](zh-cn/canvas//fabric.md)
+
 - git
     - [git相关](zh-cn/git/git.md)
 

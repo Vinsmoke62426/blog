@@ -90,6 +90,8 @@ reader.onload = function(e){
 ```
 另外附上[base64，File，arraybuffer互相转化操作](https://blog.csdn.net/Dalin0929/article/details/127265602)
 
+[这个更全](https://blog.csdn.net/weixin_44116302/article/details/122064841)
+
 
 ### url转dataUrl，dataUrl转blob
 ```
