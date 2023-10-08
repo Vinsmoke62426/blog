@@ -28,6 +28,7 @@
 - 项目相关
     - [小记](zh-cn/project/project.md)
     - [关于ui以及设计风格](zh-cn/project/ui.md)
+    - [关于图表的用法建议](zh-cn/project/rules.md)
 
 - uni-app
     - [踩坑](zh-cn/uni-app/problem.md)
