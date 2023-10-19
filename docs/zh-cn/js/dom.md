@@ -19,3 +19,30 @@ wrap.outerHTML = wrap.innerHTML
 
 ## 用ResizeObserver替代resize
 [参考](https://blog.csdn.net/qq_32615575/article/details/122607120)
+
+## 原生js添加dom和 vue用jsx添加dom的区别
+```js
+const div = document.createElement("div")
+    const tabHeader = document.querySelector(".el-tabs__header")
+    tabHeader.insertBefore(div, tabHeader.firstChild)
+    // const btn = document.createElement("button")
+    const btn = {
+      render: (h) => {
+        return (
+          <el-button icon="el-icon-back" size="small" class="back-btn">
+            返回
+          </el-button>
+        )
+      }
+    }
+    // 全局注册组件
+    const infoLabel = new Vue(btn)
+    const infoLabelComponent = infoLabel.$mount()
+    // 注册后拿到原始dom
+    const dom = infoLabelComponent.$el
+    div.appendChild(dom)
+    // btn.innerHTML = "返回"
+    // btn.classList.add("el-button")
+    // btn.classList.add("back-btn")
+    // btn.classList.add("el-button--small")
+```
