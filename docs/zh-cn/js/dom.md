@@ -26,6 +26,7 @@ const div = document.createElement("div")
     const tabHeader = document.querySelector(".el-tabs__header")
     tabHeader.insertBefore(div, tabHeader.firstChild)
     // const btn = document.createElement("button")
+    // div.appendChild(btn)
     const btn = {
       render: (h) => {
         return (
@@ -46,3 +47,8 @@ const div = document.createElement("div")
     // btn.classList.add("back-btn")
     // btn.classList.add("el-button--small")
 ```
+上面是一个比较典型的案例，包含了原生js添加dom
+
+两种常见方法 appendChild 和 insertBefore
+
+以及用 vue 的 render 去代替 原生的 createElement 去创建 dom
