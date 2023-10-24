@@ -28,3 +28,6 @@ if(typeof window !== "undefined"){
     //do something
 }
 ```
+
+## import/require的关系和区别
+[这篇文章写的非常好](https://blog.csdn.net/qq_31915745/article/details/107713759)
