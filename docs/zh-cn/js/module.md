@@ -31,3 +31,6 @@ if(typeof window !== "undefined"){
 
 ## import/require的关系和区别
 [这篇文章写的非常好](https://blog.csdn.net/qq_31915745/article/details/107713759)
+
+## require.context()用法详解
+[这篇还写了跟vue相关的使用场景](https://blog.csdn.net/ksjdbdh/article/details/122349542)
