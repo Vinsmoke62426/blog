@@ -56,3 +56,21 @@ svg.appendChild(rect)
 解决办法在[这里](../request/request.md)
 
 也可使用第三方依赖`svg-injector`,我没有详细看
+
+### 修改img 标签中 的svg颜色
+```html
+<div class="svg-img">
+  <img src="~@/assets/images/logo.svg" >
+</div>
+```
+```less
+.svg-img {
+  width: 40px;
+  height: 40px;
+  text-indent: -40px;
+  overflow: hidden;
+  img {
+    filter: drop-shadow(40px 0px #0159AA);
+  }
+}
+```
