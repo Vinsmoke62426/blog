@@ -74,3 +74,49 @@ svg.appendChild(rect)
   }
 }
 ```
+
+## sprit 雪碧图
+
+前面两个配置也是优化页面速度
+```js
+// vueconfig.js
+module.exports = {
+  chainWebpack(config) {
+    // 它可以提高第一个屏幕的速度，建议打开预加载
+    config.plugin('preload').tap(() => [
+      {
+        rel: 'preload',
+        // to ignore runtime.js
+        // https://github.com/vuejs/vue-cli/blob/dev/packages/@vue/cli-service/lib/config/app.js#L171
+        fileBlacklist: [/\.map$/, /hot-update\.js$/, /runtime\..*\.js$/],
+        include: 'initial'
+      }
+    ])
+
+    // 当有很多页面时，会导致太多无意义的请求
+    config.plugins.delete('prefetch')
+
+    // set svg-sprite-loader
+    config.module
+      .rule('svg')
+      .exclude.add(resolve('src/icons'))
+      .end()
+    config.module
+      .rule('icons')
+      .test(/\.svg$/)
+      .include.add(resolve('src/icons'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
+      })
+      .end()
+  }
+}
+```
+然后配合两个依赖来使用
+```
+svgo svg-sprite-loader
+```
+详细可以参考 `vue-element-admin` 项目
