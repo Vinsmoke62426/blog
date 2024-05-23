@@ -67,3 +67,8 @@ soft 回退后被回退的代码会暂时放在暂存区，然后执行 stash �
 hard 回退后被回退的代码直接就没有了
 
 `回退后，要push，只能 git push --force 去覆盖远程的仓库代码`
+
+### 修改远程仓库地址
+```
+git remote set-url origin ssh://git@xx.xx.xxx.xx:223/DQGS/zts-web.git
+```
