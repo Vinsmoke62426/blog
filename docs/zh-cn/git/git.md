@@ -72,3 +72,31 @@ hard 回退后被回退的代码直接就没有了
 ```
 git remote set-url origin ssh://git@xx.xx.xxx.xx:223/DQGS/zts-web.git
 ```
+
+### 清理已经提交了的大文件
+
+找出最大的三个文件
+```
+$ git verify-pack -v .git/objects/pack/*.idx | sort -k 3 -n | tail -3
+# 输出：
+4d2ae4c4413740d81019aa65691a2f75f00a5d3b blob 657413784 136436872 5330845
+4d2ae4c4413740d81019aa65691a2f75f00a5d3b blob 657413784 136436872 5668892
+4d2ae4c4413740d81019aa65691a2f75f00a5d3b blob 657413784 136436872 6313927
+```
+查看大文件是什么文件
+```
+$ git rev-list --objects --all | grep 4d2ae4c4
+# 4d2ae4c4413740d81019aa65691a2f75f00a5d3b 15504.hprof
+```
+[借助java的工具，要提起配置jdk以及下载软件](https://rtyley.github.io/bfg-repo-cleaner/)
+
+点击下载完成后将这个jar包复制到您到项目根目录下与.git目录同级
+
+删除某个文件
+```
+java -jar bfg-1.14.0.jar --delete-files WxUtils.java
+```
+删除完成后提交
+```
+git push --force
+```
