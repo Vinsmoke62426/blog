@@ -43,3 +43,17 @@ this.$router.replace({
 
 ## router-view 和 component:is
 功能相同,适用不同业务场景
+
+## 通过依赖动态注册路由
+```js
+// main.js
+
+import aaa from "@epnc-t/personal-vue"
+let route = {
+  path: "/aaa"
+}
+// route.meta = { ...route.meta }
+route.component = aaa
+router.addRoute(route)
+```
+后面即可实现 `router.push('/aaa')`跳转到系统中没有的页面，一般比较适合单独新建标签页的页面
