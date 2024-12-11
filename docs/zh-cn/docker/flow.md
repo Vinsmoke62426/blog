@@ -12,6 +12,9 @@
 ```
 /home/staragent/bin/staragentctl restart
 ```
+> [!TIP]
+> 如果服务器没有网络，会报错提示找不到这个文件
+
 ### 关于是否需要重启center容器
 为什么发布到euraka本地的时候，需要重启center？
 
