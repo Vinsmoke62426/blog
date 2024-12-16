@@ -65,6 +65,11 @@ tips: 补充一点
 npm install -g npmrc
 ```
 
+## 使用nexus3搭建npm私有仓库
+[参考文档](https://blog.csdn.net/qq_37947006/article/details/122035841)
+
+注意： 最后弄完本地提交的用户要在系统里面创建并配上权限，这点文档里面没有写
+
 ## 常见错误及解决办法
 ### npm login need: BASIC realm="Sonatype Nexus Repository Manager"
 解决办法：管理员配置 realm 权限就行
