@@ -14,7 +14,7 @@ ENV TZ=Asia/Shanghai
 COPY /dist /usr/share/nginx/html
 COPY /nginx/nginx-meta.conf /etc/nginx/nginx.conf
 
-#暴露8081端口
+#暴露8096端口
 EXPOSE 8096
  
 #作者
