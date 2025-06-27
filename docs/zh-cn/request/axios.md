@@ -73,3 +73,45 @@ window.URL.revokeObjectURL(href);
 mockjs 和 axios 同时存在的情况下，mockjs 会修改 axios 的 `responseType`
 
 导致在上传文件和下载文件的时候 axios 直接报错，走响应拦截的错误拦截器
+
+### 接收 text/event-stream 类型数据
+1. 更新最新版axios @1.7.0 以上（更新最新版common-vue）
+2. 配置开发模式禁用压缩
+```js
+// vue.config.js
+devServer: { 
+  compress: false
+}
+```
+3. 接口配置示例如下
+```js
+import { request } from "@epnc-t/common-vue"
+export const getChatAiFlux = (params) => {
+  return request({
+    url: "api/dqgs/upload/test/chat/ai/flux",
+    method: "get",
+    headers: {
+      Accept: "text/event-stream" //必要配置
+    },
+    adapter: "fetch", //核心配置，axios@1.7.0以上支持
+    responseType: "stream", //必要配置
+    params
+  })
+}
+```
+4. 接收数据示例如下
+```js
+// 这里的response是原始数据的data（在全局拦截中已经提取了一层）
+getChatAiFlux({ msg: "你好" }).then(async (response) => {
+  const stream = response
+  const reader = stream.pipeThrough(new TextDecoderStream()).getReader()
+  // const reader = stream.getReader()
+  while (true) {
+    const { value, done } = await reader.read()
+    if (done) break
+    // 拿到的数据格式前面一定会带有 data: 
+    // 后续根据业务自行处理
+    console.log(value)
+  }
+})
+```
