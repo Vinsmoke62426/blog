@@ -75,6 +75,10 @@ mockjs 和 axios 同时存在的情况下，mockjs 会修改 axios 的 `response
 导致在上传文件和下载文件的时候 axios 直接报错，走响应拦截的错误拦截器
 
 ### 接收 text/event-stream 类型数据
+[https://blog.csdn.net/suiusoar/article/details/142813194]
+
+[https://segmentfault.com/q/1010000044995169]
+
 1. 更新最新版axios @1.7.0 以上（更新最新版common-vue）
 2. 配置开发模式禁用压缩
 ```js
@@ -102,7 +106,7 @@ export const getChatAiFlux = (params) => {
 4. 接收数据示例如下
 ```js
 // 这里的response是原始数据的data（在全局拦截中已经提取了一层）
-getChatAiFlux({ msg: "你好" }).then(async (response) => {
+getChatAiFlux({ msg: "你好，介绍一下vue" }).then(async (response) => {
   const stream = response
   const reader = stream.pipeThrough(new TextDecoderStream()).getReader()
   // let buffer = ""
