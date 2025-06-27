@@ -105,13 +105,34 @@ export const getChatAiFlux = (params) => {
 getChatAiFlux({ msg: "你好" }).then(async (response) => {
   const stream = response
   const reader = stream.pipeThrough(new TextDecoderStream()).getReader()
-  // const reader = stream.getReader()
+  // let buffer = ""
   while (true) {
     const { value, done } = await reader.read()
     if (done) break
     // 拿到的数据格式前面一定会带有 data: 
     // 后续根据业务自行处理
     console.log(value)
+    // const lines = value.split("\n")
+    // lines.forEach((line) => {
+    //   if (line.startsWith("data:")) {
+    //     const data = line.replace("data:", "").trim()
+    //     console.log(data)
+    //   }
+    // })
+
+    // const chunk = decoder.decode(value, { stream: true })
+    // //处理sse流式响应的封装信息
+    // buffer += chunk.replace(/^data: /, "")
+    // let lineEndIndex
+    // while ((lineEndIndex = buffer.indexOf("\n")) >= 0) {
+    //   const line = buffer.slice(0, lineEndIndex).trim()
+    //   buffer = buffer.slice(lineEndIndex + 1)
+    //   if (line.startsWith("data:")) {
+    //     console.log(line.slice(5)) // 去掉"data:"
+    //   } else {
+    //     console.log(line)
+    //   }
+    // }
   }
 })
 ```
