@@ -99,6 +99,7 @@ export const getChatAiFlux = (params) => {
     },
     adapter: "fetch", //核心配置，axios@1.7.0以上支持
     responseType: "stream", //必要配置
+    timeout: 0, //必要配置
     params
   })
 }
