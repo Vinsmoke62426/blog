@@ -3,6 +3,10 @@
 
 [关于所有的配置项及其用法，以及不同协议的区别](https://blog.51cto.com/u_15689678/5426006)
 
+### 版本号全解析
+[这个写的比较好](https://juejin.cn/post/7530958619597651977)
+
+
 ### peerDependencies 并行依赖
 vue3 的 ui 组件 element-plus 中的 package.json 文件中这样写到
 ```json
