@@ -33,6 +33,7 @@
 - uni-app
     - [踩坑](zh-cn/uni-app/problem.md)
     - [5+app](zh-cn/uni-app/5+app.md)
+    - [低功耗蓝牙](zh-cn/uni-app/BLE.md)
 
 - vue-next
     - [与vue2的差异](zh-cn/vue-next/differences.md)
